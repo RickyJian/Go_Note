@@ -1,1 +1,1 @@
-# Go Note
+# Go Application Note
