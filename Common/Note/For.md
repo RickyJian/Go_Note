@@ -2,9 +2,12 @@
 
 `Go` 唯一迴圈
 
+> for initialization ; conditon ; post { }
+
+
 ```go
 
-for initialization ; conditon ; post {
+for i := 0 ;  i < 10  ; i++ {
 
 }
 
@@ -29,22 +32,16 @@ for initialization ; conditon ; post {
 
 實作 `while`
 
+> for condition {}
+
 ```go
 
-for condition {
+for sum < 10 {
 
 }
 
 ```
 
-### infinite loop
+### 無限迴圈 ( infinite loop )
 
-無限迴圈
-
-```go
-
-for {
-
-}
-
-```
+> for { }
