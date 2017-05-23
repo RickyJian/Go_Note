@@ -139,3 +139,31 @@ x , y = y , x
 
 ```
 
+## 型別宣告
+
+* 自訂義型別
+* 不能直接進行比較及並行運算
+
+> type name underlying-type
+
+```go
+
+type Celsius float64
+
+```
+
+### name
+
+新具名型別
+
+### underlying-type
+
+底層型別
+
+#### 轉型
+
+* 底層型別相同
+* 指向相同底層型別的變數指標
+* 有可能改變值的表示
+
+> T(x)：將x值轉換成T型別
