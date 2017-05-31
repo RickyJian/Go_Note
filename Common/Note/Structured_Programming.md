@@ -45,8 +45,8 @@
 
 * 簡短宣告
 
-    用於初始化大部分的區域變數，且不能用在全域變數，在使用時至少要宣告一個新變數
-    
+    * 用於初始化大部分的區域變數，且不能用在全域變數，在使用時至少要宣告一個新變數
+    * 需要知道範圍
 
     >  name := expression
 
@@ -60,6 +60,50 @@
     > `:=` 宣告 <br>
     > `=`  指派
 
+
+    ```go
+
+    var cwd string
+
+    func init (){
+        cwd , err := os.Getwd() //編譯錯誤，cwd 未使用
+        if err != nil{
+            log.FatalF("os.Getwd failed: %v",err)
+        }
+
+    }
+
+    ```
+
+    ```go
+
+    var cwd string
+
+    func init (){
+        cwd , err := os.Getwd() //編譯錯誤，cwd 未使用
+        if err != nil{
+            log.FatalF("os.Getwd failed: %v",err)
+        }
+
+    }
+
+    ```
+
+    ```go
+
+    var cwd string
+
+    func init (){
+        cwd , err := os.Getwd() //雖編譯成功，但還是錯誤，編譯成功原因是因為， log.Fatalf("os.Getwd failed : %s", cwd)，它會抓到 cwd 的錯誤
+        if err != nil{
+            log.FatalF("os.Getwd failed: %v",err)
+        }
+
+    log.Fatalf("os.Getwd failed : %s", cwd) // 
+
+    ```
+
+    >  log.Fatalf() ： 會呼叫 os.Exit(1)
 
 ### type
 
@@ -183,7 +227,7 @@ type Celsius float64
 
 * 路徑，字串
 * 匯入宣告將短名稱與匯入的套件綁定已透過檔案來參考它的內容
-* 沒有用到匯入會造成編譯錯誤
+* 沒有用到匯入會造成編譯錯誤  
 
 > "gopl.io/ch2/tempconv"
 
@@ -191,3 +235,71 @@ type Celsius float64
 
 * 從套件層級變數開始初始化
 * 先解決相依性問題，在已宣告順序進行初始化
+* `main`最後一個初始化
+
+### init 函式
+
+* 程式啟動後自動以宣告的順序執行
+
+> func init () {}
+
+## 範圍
+
+* 宣告名稱指向該宣告原始碼程式
+* 內層宣告會將外層勳宣告`遮蔽`
+
+```go
+
+func f (){}
+
+var g = "g"
+
+funv main (){
+
+    f := "f"
+    fmt.Println(f) // 區域變數 遮蔽 套件層級函式
+    fmt.Println(g) // 套件層級變數
+    fmt.Println(h) // 編譯錯誤， h 未定義
+}
+
+```
+
+### 語句(syntactic)區塊
+
+函式內容或迴圈等包圍在括弧內的一連串陳述式，宣告在區塊外不可見
+
+### 詞彙(lexical)區塊
+
+語句區塊中引入程式中其他沒有北括弧直接包圍的宣告群組，可以任意`套疊`，不建議`套疊`。例：套件、檔案的詞彙區塊
+
+```go
+
+func main (){
+
+   x := "hello"
+   for i := 0 ; i < len(x) ; i++ {
+       x := x[i]
+       if x != '!' {
+           x := x + 'A' - 'a'
+           fmt.Printf("%c",x) // "HELLO"
+       }
+   }
+}
+
+```
+
+#### 全通(universe)區塊
+
+全程示範圍，`函示`與`常式`所處地
+
+### 套件層級
+
+可被同套件下的任何檔案參考
+
+### 檔案層級
+
+可從同一檔案內參考
+
+
+
+
