@@ -10,9 +10,6 @@
 
 指標應用
 
-## temperature
+## temperature 、 temconv
 
-多值指派
-
-## temconv
-
+多值指派、型態轉換
