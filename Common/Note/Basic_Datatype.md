@@ -39,6 +39,19 @@ uintptr // 大小未指定，足夠保存指標值的所有位元，用於低階
 
 * float32 ，float64
 
+### 複數
+
+* complex64 ， complex128
+* 內建 `real` 、 `imag` 函式
+
+```go
+
+var x complex128 = complex(1,2) // 1+2i
+real(x) // 1
+imag(x) // 2
+
+```
+
 ### 運算子
 
 * 餘數運算(`%`)：只能用於整數 
