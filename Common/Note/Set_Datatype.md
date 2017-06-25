@@ -52,3 +52,36 @@ r := [...]int{99:-1} // 總共有 100 個元素的陣列，只有最後一個元
 
 ```
 
+## slice
+
+* 可變長度序列，其元素型別皆要相同。
+* 三元件：長度、指標、容量
+* 多個slice 會共用一個底層陣列
+* 切割不可超過cap()但可超過len()
+* 不能比較，但`nil`可比較
+
+
+```go
+
+months := []string{1:"Jan.",2:"Feb" ... , 12: "Dec"} // slice 宣告 ，在此索引值0會零值初始 ""
+summer := months[6:9]   // len : 3 , cap : 7
+summer[:20] // 會導致 panic
+summer[:5] // 擴張slice , [June,..., Oct]
+
+a := []int {1,2,3,4,5,6,7,8}
+
+```
+
+### append 函式
+
+slice 加入元素
+
+```go 
+
+runes := []rune
+
+for _, r := range "hello" {
+    runes = append (runes,r)
+}
+
+```
