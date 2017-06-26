@@ -55,3 +55,12 @@ for 迴圈使用方式
     * iota 常數產生器
     * 無型別常數
 * 運算子
+* 位元運算子
+
+## Set_Datatype
+
+組合型別
+
+* 陣列(Array)
+* slice
+    * append 函式
