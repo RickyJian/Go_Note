@@ -88,7 +88,8 @@ for _, r := range "hello" {
 
 ## map
 
-* 無排序鍵/值群，所有鍵獨一無二
+* 無排序鍵(K)/值(V)群，所有鍵獨一無二
+* 鍵值必須可比較
 * 若有鍵無值則值為零值初始
 * 不可取得位址
     1. map非變數
@@ -115,6 +116,10 @@ for name , age := range args {
 
 }
 
+// ok 型態為 boolean，用來判斷 k 是否存在
+
+if age ,ok := ages["a"]; !ok{/* a is not a key in this map */ }
+
 ```
 
 ### delete 函式
@@ -123,3 +128,20 @@ for name , age := range args {
 * delete(map,k)
 
 ## struct
+
+他將零個或多個任意型別具名值組成一個實體，每個值稱為欄位
+
+
+```go
+
+type Employee struct {
+    ID int
+    Name string
+    Address string
+}
+
+var dilbert Employee
+
+dilbert.Name = "Name"
+
+```
