@@ -129,7 +129,10 @@ if age ,ok := ages["a"]; !ok{/* a is not a key in this map */ }
 
 ## struct
 
-他將零個或多個任意型別具名值組成一個實體，每個值稱為欄位
+* 他將零個或多個任意型別具名值組成一個實體，每個值稱為欄位
+* 欄位：大寫字母可以匯出
+* 可以匯出與不匯出欄位
+* 具名S型別不能宣告型別同為S的欄位，可宣告成 `*S` 指標型別的欄位
 
 
 ```go
@@ -142,6 +145,18 @@ type Employee struct {
 
 var dilbert Employee
 
+// 變數
+
 dilbert.Name = "Name"
+
+// 指標
+
+position := &dilbert.Address
+*position = "Road:" +  *position
+
+var employeeOfMonth *Employee = &dilbert  // &dilbert 為指標型別所以 Employee 要改為 *Employee 
+employeeOfMonth.Address = "Road"
+(*employeeOfMonth).Address = "Road"
+
 
 ```
