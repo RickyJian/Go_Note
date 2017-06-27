@@ -2,3 +2,5 @@
 *.exe
 doc
 doc/*
+Temp
+Temp/*
