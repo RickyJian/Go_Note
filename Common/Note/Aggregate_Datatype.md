@@ -133,7 +133,9 @@ if age ,ok := ages["a"]; !ok{/* a is not a key in this map */ }
 * 欄位：大寫字母可以匯出
 * 可以匯出與不匯出欄位
 * 具名S型別不能宣告型別同為S的欄位，可宣告成 `*S` 指標型別的欄位
-
+* 可做參數傳給函式及回傳，通常較大的struct會將指標傳入函式
+* 被呼叫的函式只會接收到參數的拷貝而不是原始資料參數的參考
+* 若所有欄位可以比較，則struct可以比較
 
 ```go
 
@@ -142,6 +144,12 @@ type Employee struct {
     Name string
     Address string
 }
+
+type Employee struct {
+    ID int
+    Name , Address string
+}
+
 
 var dilbert Employee
 
@@ -158,5 +166,73 @@ var employeeOfMonth *Employee = &dilbert  // &dilbert 為指標型別所以 Empl
 employeeOfMonth.Address = "Road"
 (*employeeOfMonth).Address = "Road"
 
+pp := &Employee{1,"name","road"}  // 建構及初始struct並取得位置
+pp := new (Employee)
+*pp = Employee{1,"name","road"}  
+
+// 實字宣告方法
+
+position := Employee{1,"name","road"} 
+
+position := Employee{ID : 1,Name : "name", Address : "road"} // 若省略宣告欄位會對此欄位零值初始
+
+// 函式
+
+func Bonus (e *Employee) int{
+    /**/
+}
+
+
+```
+
+### 欄位嵌入
+
+```go
+
+type Point struct {
+    X , Y int
+}
+
+type Circle struct{
+    Center Point
+    R int 
+}
+
+
+var cir Circle
+
+cir.Center.X = 1
+
+```
+
+#### 不具名嵌入
+
+宣告沒有名字的欄位，該欄位必須是具名型別或不具名型別的指標，但不能用在實字語法，也不可以有兩個同型別的不具名欄位
+
+
+```go
+
+type Point struct {
+    X , Y int
+}
+
+type Circle struct{
+    Point
+    R int 
+}
+
+type Wheel struct {
+    Circle
+    Spokes int
+}
+
+var w Wheel
+
+w.X=5 // 與 w.Circle.Point.X 相同
+
+w = Wheel{8,8,5,20} //編譯錯誤，未知欄位
+w = Wheel{X:8,Y:8,R:9,Spokes:20}//編譯錯誤，未知欄位
+
+w = Wheel{Circle{Point{8,8},5},20} //編譯成功
 
 ```
