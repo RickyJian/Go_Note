@@ -57,10 +57,15 @@ for 迴圈使用方式
 * 運算子
 * 位元運算子
 
-## Set_Datatype
+## Aggreate_Datatype
 
 組合型別
 
 * 陣列(Array)
 * slice
     * append 函式
+* map
+    * delete 函式
+* struct
+    * 欄位嵌入
+        * 不具名嵌入
