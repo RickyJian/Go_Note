@@ -32,8 +32,6 @@ func zero (int , int) int {}
 * 函式內的區域變數，初始由呼叫提供
 * 傳值，接收參數的拷貝，修改拷貝不影響呼叫方，帶有參考(例：指標、slice、map、channel、func)會間接影響傳入的參考
 
-
-
 ### 型別
 
 又稱 signature
@@ -42,4 +40,10 @@ func zero (int , int) int {}
 
 指定函式的回傳的值與型別，結果可以具名
 
-## 遞迴
+### 多回傳值
+
+回傳一個以上結果
+
+## 遞迴(recursion)
+
+直接或間接呼叫自身function
