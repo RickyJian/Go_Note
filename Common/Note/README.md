@@ -12,6 +12,10 @@
 
 for 迴圈使用方式
 
+## JSON
+
+JSON 常用方法
+
 ## Structured_Programming
 
 程式結構
