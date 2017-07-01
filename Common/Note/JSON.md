@@ -26,5 +26,21 @@ Unicode 編碼
 
 ## 欄位標籤
 
-* struct 欄位相關的編譯其字串資訊
+* struct 轉成 json 所替代的名稱
 * 字串實字
+
+```go
+
+// Year 會轉成 released
+// Color 會轉成 color
+
+type Movie struct {
+    Title string 
+    Year int 'json:released'
+    Color bool 'json:color,omitempty'
+    Actors []string
+}
+
+```
+
+> omitempty：若蘭為為其型別的零值或空則不應輸出
