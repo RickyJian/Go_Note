@@ -36,8 +36,8 @@ Unicode 編碼
 
 type Movie struct {
     Title string 
-    Year int 'json:released'
-    Color bool 'json:color,omitempty'
+    Year int `json:released`
+    Color bool `json:color,omitempty`
     Actors []string
 }
 
