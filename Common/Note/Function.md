@@ -39,6 +39,23 @@ func squares() func() int {
 
 ```
 
+## 可變函式
+
+動態參數，在最後一個參數的型別前加上`...`
+
+
+```go
+// vals 為陣列型別
+func sum (vals ...int){
+    
+}
+
+func sum (vals []int){
+
+}
+
+```
+
 ## 參數列 (parameter-list)
 
 * 名稱+型別
@@ -97,7 +114,25 @@ func operate (x int , y int )(plus , minus , multiple , devide){
 
 ```
 
-
 ## 遞迴(recursion)
 
 直接或間接呼叫自身function
+
+## 延遲函式呼叫 defer 函式
+
+* 在函式前加 defer
+* 以反向順序執行，當函式由上到下執行完後會由下到上執行 defer 的地方
+* 常用來開啟或關閉資源
+
+```go
+
+func ReadFile (filename string) ([]byte ,error){
+    f , err := os.Open(filename)
+    if err != nil {
+        eturn nil , err
+    }
+    defer f.Close()
+    return ReadAll(f)
+}
+
+```
