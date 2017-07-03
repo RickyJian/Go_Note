@@ -20,6 +20,10 @@ JSON 常用方法
 
 待補
 
+## MakeAndNew
+
+了解`new`與`make`
+
 ## Structured_Programming
 
 程式結構
@@ -77,3 +81,17 @@ JSON 常用方法
 * struct
     * 欄位嵌入
         * 不具名嵌入
+
+## Function
+
+* 不具名函式
+* 參數列
+    * 參數
+        * 可變函式
+    * 型別
+* 回傳值
+    * 多回傳值
+* 遞迴
+* defer 
+* panic
+* recover
