@@ -1,4 +1,4 @@
-# 函式
+# 函式 (Function)
 
 * 包裝陳述式，對使用者隱藏實作細節
 * 零值為nil
@@ -39,23 +39,6 @@ func squares() func() int {
 
 ```
 
-## 可變函式
-
-動態參數，在最後一個參數的型別前加上`...`
-
-
-```go
-// vals 為陣列型別
-func sum (vals ...int){
-    
-}
-
-func sum (vals []int){
-
-}
-
-```
-
 ## 參數列 (parameter-list)
 
 * 名稱+型別
@@ -76,6 +59,23 @@ func funcToBeParameter  (c int , post func(n int)){}
 
 * 函式內的區域變數，初始由呼叫提供
 * 傳值，接收參數的拷貝，修改拷貝不影響呼叫方，帶有參考(例：指標、slice、map、channel、func)會間接影響傳入的參考
+
+#### 可變函式
+
+動態參數，在最後一個參數的型別前加上`...`
+
+
+```go
+// vals 為陣列型別
+func sum (vals ...int){
+    
+}
+
+func sum (vals []int){
+
+}
+
+```
 
 ### 型別
 
