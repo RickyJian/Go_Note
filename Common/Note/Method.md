@@ -33,7 +33,7 @@ func main (){
 ```go
 // 同上範例
 
-type Path []Pint 
+type Path []Point 
 
 func (path Path) Distance() float64{
     sum := 0.0
@@ -65,4 +65,57 @@ func main (){
 
 名稱選擇短一點，且在方法間一致的名稱較好
 
+```go
 
+func (p Point) Distance (q Point) float64 {
+    return math.Hypot(p.X - q.X , p.Y - q.Y)
+}
+
+func main (){
+    p := Point {1,2}
+    q := Point {1,2}
+    p.Distance(q)
+
+    pptr := &p
+    pptr.Distance(q)
+    // or
+    (*pptr).Distance(q)
+}
+
+```
+
+### 指標接受器
+
+```go
+
+func (p *Point) ScaleBy(factor float64){
+    p.X *= factory
+    p.Y *= factory
+}
+
+func main() {
+
+    r := &Point{1,2}
+    r.ScaleBy(2)
+    fmt.Println(*r) // "{2,4}"
+
+    // or
+
+    p := Point{1,2}
+    (&p).ScaleBy(2)
+    fmt.Println(p) // "{2,4}"
+
+    p.ScaleBy(2) // p 會自動轉成 &p
+
+    Point{1,2}.ScaleBy(2) // 編譯錯誤 ， 無法取得Point位置
+
+}
+
+```
+
+> 當 Point 任一方法具有指標接受，則 Point 的所有方法應有指標接受器
+
+
+#### nil 有效的接收器值
+
+容許 nil 指標作為參數
