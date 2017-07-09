@@ -60,6 +60,35 @@ func main (){
 > path[i-1]型別為 Point ，因此呼叫 Point.Distance<br>
 > perim型別為 Path，呼叫 Path.Distance
 
+### 方法值
+
+將方法綁定給特定接受器值的函式
+
+```go
+
+type Point struct {
+    X , Y float64
+}
+
+func (p *Point) Distance(q Point) float64{
+
+}
+
+func (p *Point) ScaleBy(factor float64){
+
+}
+
+func main (){
+    p := Point{1,2}
+    q := Point{1,2}
+    distanceFromP := p.Distance  // 方法值
+    fmt.Print(distanceFromP(q))
+    scaleP := p.ScaleBy // 方法值
+    scaleP(2)
+    scaleP(3)
+}
+
+```
 
 ### 接受器(Receive)
 
