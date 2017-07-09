@@ -90,6 +90,43 @@ func main (){
 
 ```
 
+#### 方法運算式
+
+* 寫做 T.f 或 (*T).f，T 是型別
+* 第一個參數是接受器
+
+```go
+
+type Point struct {
+	X, Y float64
+}
+
+func (p Point) Distence(q Point) float64 {
+	return math.Hypot(p.X-q.X, p.Y-q.Y)
+}
+
+func (p *Point) ScaleBy(float float64) {
+
+}
+
+func main() {
+	p := Point{1, 8}
+	q := Point{1, 2}
+	dis := p.Distence
+	dis2 := Point.Distence
+    sca := (*Point).ScaleBy
+	sca2 := (&p).ScaleBy
+	fmt.Printf("%T\n", dis) // 印出 func(main.Point) float64
+	fmt.Printf("%T\n", dis2) // 印出 func(main.Point, main.Point) float64
+	fmt.Printf("%T\n", dis(q)) // 印出 float64
+	fmt.Printf("%T\n", dis2(p, q)) // 印出 float64
+	fmt.Printf("%T\n", sca) // 印出 func(*main.Point, float64)
+	fmt.Printf("%T\n", sca2) // 印出 func(float64)
+}
+
+
+```
+
 ### 接受器(Receive)
 
 名稱選擇短一點，且在方法間一致的名稱較好
