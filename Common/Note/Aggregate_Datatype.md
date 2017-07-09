@@ -203,14 +203,54 @@ var cir Circle
 
 cir.Center.X = 1
 
+// 等同
+
+cir.X = 1
+
 ```
 
-#### 不具名嵌入
-
-宣告沒有名字的欄位，該欄位必須是具名型別或不具名型別的指標，但不能用在實字語法，也不可以有兩個同型別的不具名欄位
-
+### 方法嵌入
 
 ```go
+
+type Point struct {
+    X , Y float64
+}
+
+type ColoredPoint struct {
+    Point 
+    Color color.RGBA
+}
+
+func (p Point) Distance (q Point) float64{
+
+} 
+
+func (p *Point) ScaleBy(factor float64){
+
+}
+
+
+func main (){
+    var cp ColoredPoint
+    cp.X = 1
+    red := color.RGBA{255,0,0,255}
+    var p = ColoredPoint{Point{1,2},red}
+
+
+}
+
+```
+
+### 不具名嵌入
+
+* 可以有多個具名型別
+* 欄位：宣告沒有名字的欄位，該欄位必須是具名型別或不具名型別的指標，但不能用在實字語法，也不可以有兩個同型別的不具名欄位
+* 方法：接受器會自動提升
+
+```go
+
+// 欄位
 
 type Point struct {
     X , Y int
@@ -221,6 +261,11 @@ type Circle struct{
     R int 
 }
 
+type Circle2 struct{
+    *Point
+    R int 
+}
+
 type Wheel struct {
     Circle
     Spokes int
@@ -228,11 +273,47 @@ type Wheel struct {
 
 var w Wheel
 
-w.X=5 // 與 w.Circle.Point.X 相同
+func main (){
+    w.X=5 // 與 w.Circle.Point.X 相同
 
-w = Wheel{8,8,5,20} //編譯錯誤，未知欄位
-w = Wheel{X:8,Y:8,R:9,Spokes:20}//編譯錯誤，未知欄位
+    w = Wheel{8,8,5,20} //編譯錯誤，未知欄位
+    w = Wheel{X:8,Y:8,R:9,Spokes:20}//編譯錯誤，未知欄位
 
-w = Wheel{Circle{Point{8,8},5},20} //編譯成功
+    w = Wheel{Circle{Point{8,8},5},20} //編譯成功    
+}
 
+```
+
+
+```go
+
+// 方法
+
+type Point struct {
+    X , Y float64
+}
+
+type ColoredPoint struct {
+    Point 
+    Color color.RGBA
+}
+
+func (p Point) Distance (q Point) float64{
+
+} 
+
+func (p *Point) ScaleBy(factor float64){
+
+}
+
+
+func main (){
+    var cp ColoredPoint
+    cp.X = 1
+    red := color.RGBA{255,0,0,255}
+    var p = ColoredPoint{Point{1,2},red}
+
+    p.Distance(cp) // 編譯器會將 接受器((p Point)) 提升成 (p ColoredPoint)
+
+}
 ```
