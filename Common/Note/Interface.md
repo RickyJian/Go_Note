@@ -114,4 +114,22 @@ x.(T)：x為介面型別運算式，T為要判別的型別
 
 檢查 x 的動態型別是否符合 T ，檢查成功不會擷取動態值，介面值為原樣，但介面型別為 T 
 
+## 型別交換
+
+動態辨別這些型別並以不同方式處理，x.(type)
+
+```go
+
+switch x.(type){
+    case nil:
+    case int:
+    case bool:
+    case string:
+    default:
+    
+}
+
+```
+
+
 
