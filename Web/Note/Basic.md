@@ -40,3 +40,10 @@ func main (){
 ```
 
 ## Go Web 工作概念
+
+| 名稱 | 說明 |
+| ----- | ----- | 
+| Request | 使用者請求資訊，用來解析使用者請求資訊 |
+| Response | Server 回饋給 Client 的資訊 |
+| Conn | 使用者請求連線 |
+| Handler | Request & Response 處理邏輯 |
