@@ -1,6 +1,7 @@
-# Go Web Server
+# Go Web Basic
 
-`Go` 提供完整的 `net/http` 封包
+* `Go` 提供完整的 `net/http` 封包
+* 直接監聽 `tcp` 通訊埠
 
 ```go
 
@@ -37,3 +38,5 @@ func main (){
 }
 
 ```
+
+## Go Web 工作概念
