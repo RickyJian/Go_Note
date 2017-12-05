@@ -48,15 +48,3 @@ func main (){
 | Conn | 使用者請求連線 |
 | Handler | Request & Response 處理邏輯 |
 
-```flow
-
-st=>start: Start
-e=>end
-op=>operation: My Operation
-cond=>condition: Yes or No?
-
-st->op->cond
-cond(yes)->e
-cond(no)->op
-
-```
