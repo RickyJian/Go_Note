@@ -39,6 +39,10 @@ func main (){
 
 ```
 
+> ListenAndServe：初始化 Server 物件，呼叫 net.Listen("tcp",addr)<br>
+> srv.Listen(net.Listener)函數，處理接受 Client 請求資訊<br>
+> 使用者每一次請求都是由新的 goroutine 去福，並補互相影響
+
 ## Go Web 工作概念
 
 | 名稱 | 說明 |
@@ -48,3 +52,8 @@ func main (){
 | Conn | 使用者請求連線 |
 | Handler | Request & Response 處理邏輯 |
 
+## http 封包執行機制
+
+1. 監聽 Socket 等待Client請求
+1. 接受 Client Request 
+1. 處理 Client Request，並交給 Handler 處理
