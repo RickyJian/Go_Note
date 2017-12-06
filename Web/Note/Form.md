@@ -68,3 +68,121 @@ func main (){
 }
 
 ```
+
+> r.Form["username"] 也可以用 r.FormValue("username") 代替，但當使用 r.FormValue 時可以不必呼叫 r.ParseForm
+
+## 表單驗證
+
+資料後端驗證
+
+### 必填欄位
+
+```go
+
+if len(r.Form["username"][0])==0 {
+    // 空處理
+}
+
+// or
+
+if len(r.Form.Get("username"))==0 {
+    // 空處理
+}
+
+```
+
+### 數字驗證
+
+```go
+
+getint , err := strconv.Atoi(r.Form.Get("age"))
+
+if err != nil {
+    // 轉型失敗
+}
+
+if getint > 50 {
+    // 數字邏輯處理
+}
+// 正則表示式
+if m , _ := regxp.MathString("^[0-9]+$" , r.Form.Get("age")); !m {
+    return false
+}
+
+```
+
+### 下拉選單(select)驗證
+
+```html
+
+<select name = "fruit">
+    <option value = "apple"> apple </option>
+    <option value = "peer"> peer </option>
+    <option value = "orange"> orange </option>
+<select> 
+
+```
+
+```go
+
+slice := []string{"apple" , "peer" , "orange"}
+for _ , v := range slice {
+    if v == r.Form.Get("fruit"){
+        return true 
+    }
+}
+return false
+
+```
+
+### 選項按鈕(Radio button)驗證
+
+```html
+
+<input type ="radio" name = "gender" value = "1"> male
+<input type ="radio" name = "gender" value = "2"> female
+
+```
+
+```go
+
+slice := []int{1,2}
+for _ , v := range slice {
+    if v == r.Form.Get("gender"){
+        return true 
+    }
+}
+return false
+
+```
+
+### 核取按鈕(checkbox)驗證
+
+
+```html
+
+<input type ="checkbox" name = "interest" value = "socker"> socker
+<input type ="checkbox" name = "interest" value = "baseball"> baseball
+<input type ="checkbox" name = "interest" value = "basketball"> basketball
+
+```
+
+```go
+
+slice := []string{"socker","baseball", "basketball"}
+check := Slice_diff(r.Form["interest"],slice) 
+if check != nil {
+    return false
+}
+return false
+
+```
+
+### 日期時間驗證
+
+```go
+
+t := time.Date(2009, time.November , 10 ,23 ,0,0,0,time.UTC)
+fmt.Printf(t.Local())
+
+```
