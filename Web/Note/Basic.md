@@ -91,6 +91,7 @@ type MyMux struct {
 }
 
 func (p *MyMux) ServeHTTP(w http.ResponseWriter , r *http.Request){
+    // 設定路由器
     if r.URL.Path == "/" {
         sayHelloName(w,r)
         return 
