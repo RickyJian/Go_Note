@@ -77,6 +77,9 @@ go c.serve()
 ```
 ## ServeMux
 
+* 自訂路由器
+* 將定義的路由器寫在 ServeHTTP func 裡
+
 ```go
 
 package main 
