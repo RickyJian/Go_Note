@@ -43,6 +43,7 @@ func main (){
 > srv.Listen(net.Listener)函數，處理接受 Client 請求資訊<br>
 > 使用者每一次請求都是由新的 goroutine 去福，並補互相影響
 
+
 ## Go Web 工作概念
 
 | 名稱 | 說明 |
@@ -52,8 +53,40 @@ func main (){
 | Conn | 使用者請求連線 |
 | Handler | Request & Response 處理邏輯 |
 
+
 ## http 封包執行機制
 
 1. 監聽 Socket 等待Client請求
 1. 接受 Client Request 
 1. 處理 Client Request，並交給 Handler 處理
+
+## Conn
+
+用戶每一次請求都會建立 Conn ，這裡 Conn 儲存了該次請求的資訊，然後再傳遞給 handler ，該 handler 中便可以讀取對應的 handler 資訊，確保請求獨立性
+
+```go
+
+// 等待用戶請求
+
+c, err := srv.newConn(rw)
+if err != nil {
+    continue
+} 
+go c.serve()
+
+```
+## ServeMux
+
+```go
+
+package main 
+
+import (
+    "fmt"
+    "net/http"
+)
+
+
+
+
+```
