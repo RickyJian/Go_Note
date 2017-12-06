@@ -48,7 +48,7 @@ func sayHelloName (w http.ResponseWriter , r *http.Request){
 func login (w http.ResponseWriter , r *http.Request){
     fmt.Println("method:",r.Method) // 請求取得方法
     if r.Method == "GET" {
-        t , _ := template.ParseFile("login.html")
+        t , _ := template.ParseFiles("login.html")
         t.Execute(w,nil)
     }else{
         // form 回傳商模處理
