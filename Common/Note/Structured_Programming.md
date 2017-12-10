@@ -2,36 +2,6 @@
 
 以 `Package` 開頭，後面接著 `import`
 
-## 語言符號(語法元素)
-
-### 識別符號(identifier)
-
-代表一個變數或一個類型，可以將它看成變數或類型的名稱或代號。使用前必須宣告。
-
-#### 限定識別符號
-
-代表對另一個程式套件中某個別符號的存取。需有兩個前置條件
-
-* 另一個程式套件必須事先匯入
-* 另一個程式套件的是別符號必須是可匯出
-
-### 關鍵字(keyword)
-
-不能做識別符號使用的字元序列
-
-| 類別 | 關鍵字 |
-|---|---|
-| 程式宣告 | import , package |
-| 程式實體宣告與定義 | chan , const , func , interface , map struct , type , var |
-| 程式流程控制 | go , select , break , case , continue , default , defer , else , fallthrough , for , goto , if , range , return , switch | 
-
-### 運算符號(operator)
-
-請參照 [基本資料型別](Basic_Datatype.md)
-
-### 分隔符號(delimeter)
-
-
 ## 宣告
 
 * 以字母底線開頭
