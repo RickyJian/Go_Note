@@ -196,3 +196,60 @@ fmt.Printf(t.Local())
 | HTMLEscape(w io.Wtiter , b []byte) | 將 b 進行逸出後寫到 w |
 | HTMLEscapeString(s String) string | 逸出s之後回傳字串 |
 | HTMLEscape(args ...interface{}) string | 支援多參數逸出，並傳回結果字串 |
+
+```go
+
+    fmt.Println("username", template.HTMLEscapeString(r.FormValue("userName")) )
+
+```
+
+## 防止多次送出表單
+
+在 form 裡新增一個時間戳記
+
+```html
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>test</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <input type="checkbox" name="interest" value="football">足球
+        <input type="checkbox" name="interest" value="basketball">籃球
+        <input type="checkbox" name="interest" value="tennis">網球
+        使用名稱： <input type="text" name="username" >
+        密碼： <input type="password" name="password" >
+        <!-- md5 時間戳記 -->
+        <input type="hidden" name="token" value="{{.}}">
+        <input type="submit" value="登入">
+    </body>
+</html>
+
+```
+
+```go
+
+func login (w http.ResponseWriter , r *http.Request) {
+    if r.Method == "GET" {
+        crutime := time.Now().Unix()
+        h := md5.New()
+        io.WriteString(h , strconv.FormatInt(crutime,10))
+        token := fmt.Sprintf("%x",h.Sum(nil))
+        t , _ := template.ParseFiles("index.html")
+        t.Excute(w,token)
+    }else{
+        token := r.FormValue("token")
+        if token != "" {
+            // 驗證 token
+        }else{
+            // 驗證失敗
+        }
+        
+    }
+}
+
+```
