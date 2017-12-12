@@ -186,3 +186,13 @@ t := time.Date(2009, time.November , 10 ,23 ,0,0,0,time.UTC)
 fmt.Printf(t.Local())
 
 ```
+
+## 預防跨站攻擊(Cross Site Scripting,XSS)
+
+使用 `html/template` 
+
+| 功能 | 說明 |
+| ----- | ----- |
+| HTMLEscape(w io.Wtiter , b []byte) | 將 b 進行逸出後寫到 w |
+| HTMLEscapeString(s String) string | 逸出s之後回傳字串 |
+| HTMLEscape(args ...interface{}) string | 支援多參數逸出，並傳回結果字串 |
