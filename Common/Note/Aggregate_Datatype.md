@@ -103,6 +103,23 @@ slice2 := slice[2:4:5]
 
 ```
 
+### copy
+
+* 將第二個參數複製到第一個參數
+* 類型必須一致
+* 會將 slice 長度較長的複製到 slice 長度較短的
+* 回傳長度(int)為長度較短的slice長度
+
+```go
+
+slice := []int {0,1,2,3,4,5}
+slice2 := []int {9,8,7}
+slice3 := copy(slice,slice2)
+
+// result：9 8 7 3 4 5
+
+```
+
 ## map
 
 * 無排序鍵(K)/值(V)群，所有鍵獨一無二
