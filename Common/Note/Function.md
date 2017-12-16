@@ -114,6 +114,21 @@ func operate (x int , y int )(plus , minus , multiple , devide){
 
 ```
 
+### 資料類型
+
+```go
+
+var mutilple = func(a, b int) (result int) {
+	result = a * b
+	return
+}
+
+func main (){
+    m := mutilple(2,4)
+}
+
+```
+
 ## 遞迴(recursion)
 
 直接或間接呼叫自身function
