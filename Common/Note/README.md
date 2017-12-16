@@ -1,28 +1,17 @@
-# GO 筆記
+# Go 筆記
 
-## Catalog
+## 程式撰寫前
+
+### Catalog
 
 `Go`目錄
 
-## Command
+### Command
 
 常用`Go`指令
 
-## For
+## 程式結構
 
-for 迴圈使用方式
-
-## JSON
-
-JSON 常用方法
-
-## Templete
-
-待補
-
-## MakeAndNew
-
-了解`new`與`make`
 
 ## Structured_Programming
 
@@ -53,7 +42,9 @@ JSON 常用方法
         * 套件層級
         * 檔案層級
 
-## Basic_Datatype
+## 資料型態
+
+### Basic_Datatype
 
 基本資料型別
 
@@ -69,7 +60,7 @@ JSON 常用方法
 * 運算子
 * 位元運算子
 
-## Aggreate_Datatype
+### Aggreate_Datatype
 
 組合型別
 
@@ -81,6 +72,10 @@ JSON 常用方法
 * struct
     * 欄位嵌入
         * 不具名嵌入
+
+
+## 方法及函式
+
 
 ## Function
 
@@ -95,3 +90,27 @@ JSON 常用方法
 * defer 
 * panic
 * recover
+
+## 流程控制
+
+### For
+
+for 迴圈使用方式
+
+## 平行處理
+
+## 測試
+
+## 其他
+
+### JSON
+
+JSON 常用方法
+
+### Templete
+
+待補
+
+### MakeAndNew
+
+了解`new`與`make`
