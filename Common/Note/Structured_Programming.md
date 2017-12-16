@@ -386,7 +386,7 @@ func f (){}
 
 var g = "g"
 
-funv main (){
+func main (){
 
     f := "f"
     fmt.Println(f) // 區域變數 遮蔽 套件層級函式
