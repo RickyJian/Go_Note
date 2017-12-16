@@ -12,8 +12,7 @@
 
 ## 程式結構
 
-
-## Structured_Programming
+### Structured_Programming
 
 程式結構
 
@@ -76,8 +75,7 @@
 
 ## 方法及函式
 
-
-## Function
+### Function
 
 * 不具名函式
 * 參數列
