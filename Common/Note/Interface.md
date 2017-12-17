@@ -5,6 +5,8 @@
 * 撰寫更具彈性與適應能力的函式
 * 函式抽象化，並未定義實作細節
 * 零值型別與值均為nil
+* 實現一個介面就是實作所有介面方法
+* 一個資料型別可以實現多個介面
 
 > 具體型別；知道它`是`什麼，並且知道可以對它`做`什麼 <br>
 > 介面型別：不知道它`是`什麼，只知道可以對它`做`什麼 
@@ -28,7 +30,12 @@ func Write(p []byte)(n int ,err error){
 
 func main (){
     c.Write([]byte("hello") )
+    // 檢查介面是否時做成功
+    _, ok := interface{}(SortableStrings{}).(sort.Interface)
 }
+
+ 
+
 
 ```
 
@@ -46,6 +53,8 @@ type Reader interface {
 
 ### 介面嵌入
 
+不能嵌入自己本身
+
 ```go
 
 type Reader interface {
@@ -59,7 +68,8 @@ type ReadWriter interface {
 ```
 ## 空介面(interface{})
 
-可以指派任何型別的值給空介面
+* 可以指派任何型別的值給空介面
+* Go語言中的資料型別都是他的實現
 
 ```go
 
