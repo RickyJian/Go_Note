@@ -1,3 +1,9 @@
 # Go Application Note
 
-基本`Go`程式設計
+## Note
+
+Go 應用程式筆記
+
+## Example 
+
+程式範例
