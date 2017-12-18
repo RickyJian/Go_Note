@@ -107,13 +107,11 @@ func main (){
     cp.X = 1
     red := color.RGBA{255,0,0,255}
     var p = ColoredPoint{Point{1,2},red}
-
-
 }
 
 ```
 
-## 不具名嵌入
+## 不具名(匿名)嵌入
 
 * 可以有多個具名型別
 * 欄位：宣告沒有名字的欄位，該欄位必須是具名型別或不具名型別的指標，但不能用在實字語法，也不可以有兩個同型別的不具名欄位
@@ -187,4 +185,37 @@ func main (){
     p.Distance(cp) // 編譯器會將 接受器((p Point)) 提升成 (p ColoredPoint)
 
 }
+```
+
+## 匿名結構
+
+* 一次性
+* 用於臨時資料存取或資料傳遞
+
+```go
+
+var anymous struct {
+    a int 
+    b string 
+}
+
+anymous2 := struct {
+    a int 
+    b string
+}{0 , "string"}
+
+```
+
+## 字面常數標籤
+
+* 對應欄位的附加屬性
+* 標準函數程式套件 `reflect` 中提供的函數檢視到結構類型中的欄位標籤
+
+```go
+
+type Person struct {
+    Name string `json:"name"`
+    Age uint8 `json:"age"`
+}
+
 ```
