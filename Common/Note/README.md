@@ -32,7 +32,7 @@
 
 ### MakeAndNew
 
-資料初始化，了解`new`與`make`
+資料初始化，了解`new`與`make`的用法
 
 ## 資料型態
 
