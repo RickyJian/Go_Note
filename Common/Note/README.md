@@ -30,6 +30,10 @@
 
 ### Pointer
 
+### MakeAndNew
+
+資料初始化，了解`new`與`make`
+
 ## 資料型態
 
 ### Basic_Datatype
@@ -95,7 +99,3 @@ JSON 常用方法
 ### Templete
 
 待補
-
-### MakeAndNew
-
-了解`new`與`make`
