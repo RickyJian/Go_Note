@@ -151,20 +151,3 @@ func ReadFile (filename string) ([]byte ,error){
 }
 
 ```
-
-## panic
-
-* 檢查執行期間的錯誤，例：陣列溢位
-* 包含 panic值，panic發生時每個作用中函式呼叫的堆疊紀錄
-* 執行到 panic 會停止程式
-
-> 預期中的錯誤常用error，例：I/O
-
-
-## recover
-
-恢復 panic
-
-
-------------------
-待補
