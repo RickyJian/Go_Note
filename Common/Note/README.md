@@ -6,9 +6,24 @@
 
 `Go`目錄
 
+* src
+* pkg
+* bin
+
 ### Command
 
 常用`Go`指令
+
+* run
+* build
+* install
+* get
+* version
+* env
+
+### Go_Path
+
+`Go`路徑
 
 ## 程式結構
 
