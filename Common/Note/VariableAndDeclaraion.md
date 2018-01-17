@@ -26,94 +26,89 @@
 
 值的儲存體，又稱有位置的值
 
-* 一般
+### 一般
 
-    保留給須明確設定參數與型別，或之後被指派值且初值不重要的變數
+保留給須明確設定參數與型別，或之後被指派值且初值不重要的變數
 
-    > var name type = expression <br>
-    > var name type 
+> var name type = expression <br>
+> var name type 
 
-    ```go
+```go
 
-    var i, j, k int  // 三個變數都是 int 型態
+var i, j, k int  // 三個變數都是 int 型態
+var b, f, s = true , 2.3 , "four"  // boolean , float , string
 
-    var b, f, s = true , 2.3 , "four"  // boolean , float , string
+```
 
-    ```
+### 簡短宣告
 
-* 簡短宣告
+* 用於初始化大部分的區域變數，且不能用在全域變數，在使用時至少要宣告一個新變數
+* 需要知道範圍
 
-    * 用於初始化大部分的區域變數，且不能用在全域變數，在使用時至少要宣告一個新變數
-    * 需要知道範圍
+>  name := expression
 
-    >  name := expression
+```go
 
-    ```go
+i := 0
+i , j := 0,1
 
-    i := 0
-    i , j := 0,1
+```
 
-    ```
+> `:=` 宣告 <br>
+> `=`  指派
 
-    > `:=` 宣告 <br>
-    > `=`  指派
+```go
 
+var cwd string
 
-    ```go
-
-    var cwd string
-
-    func init (){
-        cwd , err := os.Getwd() //編譯錯誤，cwd 未使用
-        if err != nil{
-            log.FatalF("os.Getwd failed: %v",err)
-        }
-
+func init (){
+    cwd , err := os.Getwd() //編譯錯誤，cwd 未使用
+    if err != nil{
+        log.FatalF("os.Getwd failed: %v",err)
     }
+}
 
-    ```
+```
 
-    ```go
+```go
 
-    var cwd string
+var cwd string
 
-    func init (){
-        cwd , err := os.Getwd() //編譯錯誤，cwd 未使用
-        if err != nil{
-            log.FatalF("os.Getwd failed: %v",err)
-        }
-
+func init (){    
+    cwd , err := os.Getwd() //編譯錯誤，cwd 未使用
+    if err != nil{
+        log.FatalF("os.Getwd failed: %v",err)
     }
+}
 
-    ```
+```
 
-    ```go
+```go
 
-    var cwd string
+var cwd string
 
-    func init (){
-        cwd , err := os.Getwd() //雖編譯成功，但還是錯誤，編譯成功原因是因為， log.Fatalf("os.Getwd failed : %s", cwd)，它會抓到 cwd 的錯誤
-        if err != nil{
-            log.FatalF("os.Getwd failed: %v",err)
-        }
+func init (){
+    cwd , err := os.Getwd() //雖編譯成功，但還是錯誤，編譯成功原因是因為， log.Fatalf("os.Getwd failed : %s", cwd)，它會抓到 cwd 的錯誤
+    if err != nil{
+        log.FatalF("os.Getwd failed: %v",err)
+    }
+    log.Fatalf("os.Getwd failed : %s", cwd) 
 
-    log.Fatalf("os.Getwd failed : %s", cwd) // 
+```
 
-    ```
+>  log.Fatalf() ： 會呼叫 os.Exit(1)
 
-    >  log.Fatalf() ： 會呼叫 os.Exit(1)
-
-### type
+#### type
 
 可以省略，若省略會運算式自行決定它的型態
 
-### expression
+#### expression
 
 可以省略，若省略初值會是該`type`的零值
 
 > 零值機制 ： 確保變數總是保持正確的值，`Go`沒有未定義的值。
 
-### 變數生命週期
+#### 變數生命週期
 
 * 套件層級：整個執行期間
 * 區域變數：動態，當不用就會被回收
