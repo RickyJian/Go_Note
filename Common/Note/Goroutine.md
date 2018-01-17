@@ -1,8 +1,8 @@
-# 並形程式設計 (Goroutine)
+# 並形程式設計 (goroutine)
 
-* 並行執行的活動稱為 Goroutine
-* main函式為一個 Goroutine ，又稱主 Goroutine
-* Goroutine 無法由其他 Goroutine 以程式終止
+* 並行執行的活動稱為 goroutine
+* main函式為一個 goroutine ，又稱主 goroutine
+* goroutine 無法由其他 goroutine 以程式終止
 
 ```go
 
