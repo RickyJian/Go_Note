@@ -50,7 +50,6 @@
 
 運算式
 
-
 ### MakeAndNew
 
 資料初始化，了解`new`與`make`的用法
@@ -96,6 +95,12 @@ key/value
 * delete
 
 ### Struct
+
+* 欄位嵌入
+* 方法遷入
+* 匿名遷入
+* 匿名結構
+* 字面常數標籤
 
 ### Interface
 
