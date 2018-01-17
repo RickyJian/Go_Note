@@ -31,6 +31,13 @@
 
 程式結構
 
+* 套件、檔案
+    * 匯出
+    * 匯入
+* 套件初始化
+    * init
+* 範圍
+
 ### Identifier
 
 識別符號
@@ -43,7 +50,6 @@
 
 運算式
 
-### Pointer
 
 ### MakeAndNew
 
@@ -63,13 +69,31 @@
     * 跳脫序列
 * 常數
     * iota 常數產生器
-    * 無型別常數
-* 運算子
-* 位元運算子
 
-### Aggreate_Datatype
+### Pointer
+
+指標
+
+## Aggreate_Datatype
 
 組合型別
+
+### 陣列(Array)
+
+陣列
+
+### slice
+
+切片
+
+* append
+* copy
+
+### map
+
+key/value
+
+* delete
 
 ### Struct
 
