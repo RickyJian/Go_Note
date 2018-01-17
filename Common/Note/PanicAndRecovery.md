@@ -12,9 +12,31 @@
 
 > 預期中的錯誤常用error，例：I/O
 
+```go
+
+func Reset (x *Buffer){
+    if x == nil {
+        panic("x is nil")
+    }
+    x.elements = nil 
+}
+
+```
+
 
 ## recover
 
 * 恢復 panic
-* 
+* 不接受任何參數，但是傳回一個interface{}類型的結果值
 
+```go 
+
+func Parse(input string)(s *Syntax , err error){
+    defer func (){
+        if p := recover();p != nil{
+            err = fmt.Errorf("error")
+        }
+    }()
+}
+
+```

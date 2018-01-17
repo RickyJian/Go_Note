@@ -168,6 +168,15 @@ for 迴圈使用方式
 
 ## 錯誤處理
 
+### ERROR 介面
+
+* 建構 error package
+
+### PanicAndRecovery
+
+* panic
+* recover
+
 ## 平行處理
 
 ## 測試
