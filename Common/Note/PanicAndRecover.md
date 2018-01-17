@@ -1,4 +1,4 @@
-# Panic and Recovery
+# Panic and Recover
 
 用於報告和執行期間的恐慌
 
