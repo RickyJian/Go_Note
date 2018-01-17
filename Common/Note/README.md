@@ -144,19 +144,27 @@ for 迴圈使用方式
 
 ### Function
 
+函式
+
 * 不具名函式
 * 參數列
     * 參數
-        * 可變函式
     * 型別
 * 回傳值
     * 多回傳值
+    * 資料類型
 * 遞迴
 * defer 
-* panic
-* recover
 
 ###  Method
+
+方法
+
+* 方法宣告
+    * 方法值
+        * 方法運算式
+    * Receive
+    * Point Receive
 
 ## 錯誤處理
 
