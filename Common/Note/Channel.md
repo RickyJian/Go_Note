@@ -20,7 +20,7 @@
 
 ```
 
-> channel 是 make 所建構資料結構的參考。複製 channel 或當作函式參數時會複製參考 
+> channel 是 make 所建構資料結構的參考。複製 channel 或當作函式參數時會複製參考
 
 ## 通訊
 
@@ -31,12 +31,87 @@
 
 ```go
 
+    ch := make(chan int)
+
     ch <- x // 發送陳述
     x = <- ch // 指派陳述中的接收運算式
     <- ch // 接收運算式，拋棄結果
 
 ```
 
+> channel 關閉後發送操作會產生 pannic
+
 ## 管道(pipeline)
 
 一個 goroutine 的輸出可做為另一個 goroutine 的輸入
+
+```go
+
+func main() {
+	na := make(chan int)
+	sq := make(chan int)
+	go func() {
+		for x := 0; x < 100; x++ {
+			na <- x
+		}
+		fmt.Println("na")
+		close(na)
+	}()
+	go func() {
+		for x := range na {
+			sq <- x * x
+		}
+		close(sq)
+	}()
+	for x := range sq {
+		fmt.Println(x)
+	}
+}
+
+```
+
+```go
+
+// 檢查 channel 是否已抽乾或關閉
+
+    x , ok := <- na
+
+```
+
+## 單向 channel 型別
+
+防止 channel 接送與發送勿用，單向發送(chan<- )，單向接收(<-chan )
+
+```go
+
+func counter (out chan<- int){
+    for x := 0 ; x <100 ; x++ {
+        out <- x
+    }
+    close(out)
+}
+
+func squarer (out chan<- int , in <-chan int){
+    for v := range in {
+        out <- v * v
+    }
+    close(out)
+}
+
+
+func pointer (in <-chan int){
+    for v := range in {
+        fmt.Println(v)
+    }
+}
+
+func main (){
+    na := make(chan int)
+    sq := make(chan int)
+    go counter(na)
+    go squarer(sq,na)
+    pointer(sq)
+
+}
+
+```
