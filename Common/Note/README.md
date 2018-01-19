@@ -194,8 +194,6 @@ goroutine 之間連線
 * 無緩衝 channel
 * 有緩衝 channel
 
-### channel
-
 ## 測試
 
 ## 其他
