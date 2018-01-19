@@ -179,6 +179,16 @@ for 迴圈使用方式
 
 ## 平行處理
 
+### goroutine
+
+並行
+
+### channel
+
+goroutine 之間連線
+
+### channel
+
 ## 測試
 
 ## 其他
