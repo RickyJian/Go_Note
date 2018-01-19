@@ -115,3 +115,31 @@ func main (){
 }
 
 ```
+
+## 無緩衝 channel
+
+發送操作會阻斷發送方 goroutine 直到另一個 goroutine 在同一個 channel 執行相對應的接收<br>
+接收操作則接收方會阻斷直到另一個 goroutine 在同一個 channel 上執行相對應的發送<br>
+又稱 goroutine 同步化
+
+```go
+
+    ch := make(chan int) // 建立無緩衝 cahnnel
+
+```
+
+## 有緩衝 channel
+
+buffer 空時，發送操作會將元素插入佇列的後方，接收操作會阻斷直到另一方 goroutine 發送值<br>
+buffer 滿時，發送操作會阻斷它的 goroutine 直到另一方 goroutine 的接收產生空間，接收操作會將前面元素移除<br>
+buffer 未滿時，接收及發送不會被阻斷
+
+
+```go
+
+    ch := make (chan int , 3) // 建立有緩衝 cahnnel，容量為 3
+    cap(ch) // 檢查 channel 緩衝容量
+    len(ch) // 檢查 channel 目前在緩衝中的元素數量
+
+```
+
