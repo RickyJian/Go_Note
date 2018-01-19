@@ -187,6 +187,13 @@ for 迴圈使用方式
 
 goroutine 之間連線
 
+* 建立即關閉
+* 通訊
+* 管道
+* 單向 channel 類型
+* 無緩衝 channel
+* 有緩衝 channel
+
 ### channel
 
 ## 測試
