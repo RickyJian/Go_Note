@@ -108,6 +108,20 @@ s[0] = 'L' // 編譯錯誤，不可改變字串值
 
 const c int = 1000
 
+// c4 c5 宣告會與c3宣告相同
+const (
+    c1 ,c2 = 2 , true
+    c3     = "c"
+    c4
+    c5
+)
+
+
+const (
+    c1 ,c2 = 2 , true
+    c3 ,c4
+)
+
 ```
 
 ### iota 常數產生器
