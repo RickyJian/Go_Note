@@ -23,7 +23,7 @@ func main (){
 
 ## make
 
-用來分配到可用的儲存空間，且只用在 map、slice、channel，參數為類型及長度，回傳為已被初始化類型。
+用來分配到可用的儲存空間，且只用在 map、slice、channel，參數為類型及長度，回傳為已被初始化類型並非指標。
 
 > func make(Type, size IntegerType) Type
 
