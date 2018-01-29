@@ -27,16 +27,13 @@
 
 ## 程式結構
 
-### Structured_Programming
-
-程式結構
+### PackageAndImport
 
 * 套件、檔案
-    * 匯出
-    * 匯入
-* 套件初始化
-    * init
-* 範圍
+    * package  
+    * 匯出(Export)
+    * 匯入(Import)
+
 
 ### Identifier
 
@@ -49,6 +46,10 @@
 ### Operator
 
 運算式
+
+### Init
+
+套件初始化
 
 ### MakeAndNew
 
@@ -67,6 +68,7 @@
 * 指派
     * 指派運算
     * 資料組指派
+* 範圍
 * 轉型
     * 指標轉型
 
@@ -88,6 +90,8 @@
 ### Pointer
 
 指標
+
+### 可比性 & 有序性
 
 ## Aggreate_Datatype
 
@@ -196,6 +200,10 @@ goroutine 之間連線
 
 ## 測試
 
+## 套件
+
+> go 套件搜尋：http://godoc.org
+
 ## 其他
 
 ### JSON
@@ -205,3 +213,5 @@ JSON 常用方法
 ### Templete
 
 待補
+
+## 常用函式
