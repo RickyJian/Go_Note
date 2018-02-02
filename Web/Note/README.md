@@ -1,7 +1,17 @@
 # GO Web 筆記
 
-## Basic
+## ListenAndServe
 
-Go `net/http`，路由器
+第一支 Go web 程式
+
+## NewServeMux
+
+路由器配置
 
 ## Form
+
+## 常用函式
+
+#### FileServer , Dir ,and StripPrefix
+
+服務靜態檔案
