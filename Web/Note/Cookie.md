@@ -28,3 +28,7 @@ cookie 名稱，能隨意設置
 ## HttpOnly
 
 設為 true 時 cookie 只能通過 HTTP 或 HTTPS 訪問
+
+## http.SetCookie()
+
+將 cookie 加在回應 header 裡
