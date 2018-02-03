@@ -11,6 +11,10 @@ cookie := http.Cookie{
     HttpOnly: true
 }
 
+func auth(w http.ResponseWriter , r *http.Request){
+    http.SetCookie(w,&cookie)
+}
+
 ```
 
 ## Name
