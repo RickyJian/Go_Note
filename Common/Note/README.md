@@ -21,10 +21,6 @@
 * version
 * env
 
-### Go_Path
-
-`Go`路徑
-
 ## 程式結構
 
 ### PackageAndImport
@@ -46,6 +42,10 @@
 ### Operator
 
 運算式
+
+### Literal 
+
+字面常數
 
 ### MakeAndNew
 
