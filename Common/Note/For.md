@@ -44,4 +44,8 @@ for sum < 10 {
 
 ### 無限迴圈 ( infinite loop )
 
-> for { }
+```go
+
+for { }
+
+```
