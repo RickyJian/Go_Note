@@ -65,10 +65,6 @@
 * 建置複合資料類型值
 * 表示複合資料類型值
 
-### MakeAndNew
-
-資料初始化，了解`new`與`make`的用法
-
 ### VariableAndDeclaration
 
 宣告
@@ -237,3 +233,7 @@ fmt.printf
 ### Init
 
 套件初始化
+
+### MakeAndNew
+
+資料初始化，了解`new`與`make`的用法
