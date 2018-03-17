@@ -1,5 +1,13 @@
 # if
 
+> if condition { }
+
+## condition 
+
+必須為 bool
+
+## 實作
+
 ```go
 
 if 100 < number {
