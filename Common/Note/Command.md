@@ -39,7 +39,7 @@ go get url
 
 ```
 
-## go  version
+## go version
 
 檢查go版本
 
