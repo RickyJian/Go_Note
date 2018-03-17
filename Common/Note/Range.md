@@ -1,7 +1,7 @@
 # range
 
-* 跌代出 array 、 slice 的值及 index
-* 跌代出 map 的 key 與 value
+* 迭代出 array 、 slice 的值及 index
+* 迭代出 map 的 key 與 value
 
 ```go
 
