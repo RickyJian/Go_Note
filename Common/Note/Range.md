@@ -7,7 +7,7 @@
 
 ints := []int{1,2,3,4,5}
 
-for i , d = range ints {
+for i , d := range ints {
     fmt.Printf("%d: %d\n" ,i ,d)
 }
 
