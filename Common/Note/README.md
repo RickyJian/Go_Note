@@ -6,9 +6,13 @@
 
 `Go`目錄
 
-* src
-* pkg
-* bin
+* GOROOT
+* GOPATH
+* 檔案結構
+    * src
+    * pkg
+    * bin
+* GOBIN
 
 ### Command
 
