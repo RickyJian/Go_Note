@@ -163,6 +163,10 @@ switch 判斷式使用方式
 
 for 迴圈使用方式
 
+#### range
+
+迭代 array , slice , map 
+
 ## 方法及函式
 
 ### Function
