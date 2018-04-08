@@ -27,3 +27,14 @@ func (e *errorString) Error() string {
 }
 
 ```
+
+## fmt.Errorf
+
+並不會在 console 端輸出，而是用來初始化一個 error 型態值並作為該函式的結果回傳給呼叫方
+
+```go
+
+err := fmt.Errorf("%s\n", "ERROR")
+
+```
+
