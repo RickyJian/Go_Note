@@ -1,4 +1,6 @@
-# error 介面
+# error
+
+為一個介面型別
 
 ```go
 
@@ -8,7 +10,7 @@ type error interface {
 
 ```
 
-## 建構 error
+## errors package
 
 ```go
 
@@ -37,4 +39,3 @@ func (e *errorString) Error() string {
 err := fmt.Errorf("%s\n", "ERROR")
 
 ```
-
