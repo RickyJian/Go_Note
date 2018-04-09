@@ -12,7 +12,8 @@ func main() {
 		select {
 		case x := <-ch:
 			fmt.Println(x)
-		case ch <- i:
+        case ch <- i:
+        default:
 		}
 	}
 }
