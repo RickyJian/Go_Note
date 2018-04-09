@@ -41,3 +41,25 @@ func Parse(input string)(s *Syntax , err error){
 }
 
 ```
+
+### 指定錯誤回復
+
+recover特定錯誤，其餘錯誤則繼續 panic
+
+```go
+
+// 部分程式
+// 當 scanError 恐慌發生時則處理此錯誤，其餘恐慌發生則繼續恐慌
+func () {
+    defer func (){
+        if e := recovery(); e != nil {
+            if se , ok := e.(scanError);ok {
+                err = se.err
+            }else{
+                panic(e)
+            }
+        }
+    }()
+}
+
+```
