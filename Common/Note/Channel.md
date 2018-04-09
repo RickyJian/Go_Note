@@ -9,7 +9,7 @@
 
 ## 建立及關閉
 
-用 make 建構 channel，用close(ch)關閉 channel
+用 make 建構 channel，用close(ch)關閉 channel，關閉後的 channel 無法接值但可以取值到 channel 沒值為止
 
 ```go
 
@@ -143,3 +143,50 @@ buffer 未滿時，接收及發送不會被阻斷
 
 ```
 
+## sync.WaitGroup
+
+goroutine 計數器
+
+```go
+
+func main() {
+	demo()
+}
+
+func demo() {
+	sizes := make(chan int)
+	var wg sync.WaitGroup
+	for i := 0; i < 4; i++ {
+		wg.Add(1)
+		go func(i int) {
+			defer wg.Done()
+			sizes <- i
+		}(i)
+	}
+
+	go func() {
+		wg.Wait()
+		close(sizes)
+	}()
+
+	var total int
+	for size := range sizes {
+		total += size
+		fmt.Println(size)
+	}
+}
+
+
+```
+
+### Add()
+
+增加計數器
+
+### Done()
+
+減少計數器，等同於 Add(-1)，搭配 defer 使用能確保在 panic 發生時也會繼續遞減
+
+### Wait()
+
+等待 goroutine 結束
