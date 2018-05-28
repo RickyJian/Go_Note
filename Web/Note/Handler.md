@@ -86,3 +86,34 @@ func main() {
 }
 
 ```
+
+## 串聯多個處理器和處理函式
+
+常用於 LOG紀錄 、 安全檢查 和錯誤處理
+
+```go
+
+func hello(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "HelloHandleFunc")
+}
+
+func log(h http.HandlerFunc) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		name := runtime.FuncForPC(reflect.ValueOf(h).Pointer()).Name()
+		fmt.Println("Handler Function call Log----" + name)
+		h(w, r)
+	}
+}
+
+func main() {
+	server := http.Server{
+		Addr: "127.0.0.1:8080",
+	}
+	http.HandleFunc("/hello", log(hello))
+	server.ListenAndServe()
+}
+
+
+```
+
+> 這中串接方式又稱`管道處理(pipeline processing)`
