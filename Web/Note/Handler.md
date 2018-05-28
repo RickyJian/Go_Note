@@ -91,6 +91,40 @@ func main() {
 
 常用於 LOG紀錄 、 安全檢查 和錯誤處理
 
+### 處理器
+
+```go
+
+
+type HelloHandler struct{}
+
+func (h *HelloHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "HelloHandler")
+}
+
+func log(h http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		name := runtime.FuncForPC(reflect.ValueOf(h).Pointer()).Name()
+		fmt.Println("Handler Function call Log----" + name)
+		h.ServeHTTP(w, r)
+	})
+}
+
+func main() {
+	server := http.Server{
+		Addr: "127.0.0.1:8080",
+	}
+	hello := HelloHandler{}
+	http.Handle("/hello", log(&hello))
+	server.ListenAndServe()
+}
+
+
+
+```
+
+### 處理函式
+
 ```go
 
 func hello(w http.ResponseWriter, r *http.Request) {
