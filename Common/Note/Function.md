@@ -4,6 +4,7 @@
 * 零值為nil
 * 不可比較
 * 在套件層級宣告
+* 沒有過載(overload)，若要有過載效果可以用 [interface](interface.md) 解決
 
 ```go
 
