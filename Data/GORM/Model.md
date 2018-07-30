@@ -19,6 +19,39 @@ type Model struct {
 
 ```
 
+#### CreatedAt
+
+當創建資料時會自動寫入現在時間
+
+```go
+
+// 自動將現在時間寫入 CreatedAt 欄位
+db.Create(&student) 
+
+// 手動將資料寫入 CreatedAt 欄位
+
+db.Model(&student).Update("CreatedAt", time.Now())
+
+```
+
+#### UpdatedAt
+
+當異動資料時會自動寫入現在時間
+
+```go
+
+// 自動將現在時間寫入 UpdatedAt 欄位
+db.Save(&student) 
+db.Model(&student).Update("Name","Jian")
+
+```
+
+#### DeletedAt
+
+當 struct 含有此屬性會開啟 soft delete
+
+> soft delete:當資料刪除時並不會將資料從 database 刪除，而是將刪除時間寫入 DeletedAt 欄位，當作搜尋時並不會將資料搜尋出來
+
 ### 嵌入預設 Model
 
 ```go
