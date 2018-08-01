@@ -368,3 +368,30 @@ type Account struct {
 }
 
 ```
+
+## 多形
+
+Has One 、 Has Many 支援
+
+```go
+
+type Cat struct {
+    Id    int
+    Name  string
+    Toy   Toy `gorm:"polymorphic:Owner;"`
+}
+
+type Dog struct {
+    Id   int
+    Name string
+    Toy  Toy `gorm:"polymorphic:Owner;"`
+}
+
+type Toy struct {
+    Id        int
+    Name      string
+    OwnerId   int
+    OwnerType string
+}
+
+```
