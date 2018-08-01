@@ -68,7 +68,7 @@ type Account struct {
 
 ```go
 
-type Student struct {       // table: table
+type Student struct {       // table: Student
     ID int                  // column: id
     Name string             // column: name
     Birthday time.Time      // column: birthday
@@ -79,9 +79,11 @@ type Student struct {       // table: table
 
 ```
 
-### 自定義 table 名稱
+### Table
 
-#### 多元化名稱
+#### 自定義 table 名稱
+
+##### 多元化名稱
 
 修改 default table 名稱
 
@@ -101,18 +103,58 @@ db.SingularTable(true)
 
 ```
 
-#### 異動預設 table 名稱
+##### 異動預設 table 名稱
 
 ```go
 
 // 修改預設 table 名稱
 gorm.DefaultTableNameHandler = func (db *gorm.DB, defaultTableName string) string  {
-    return "prefix_" + defaultTableName";
+    return "prefix_" + defaultTableName
 }
+
+// 在 create table 時，新增 prefix(ENGINE=InnoDB)
+db.Set("gorm:table_options", "ENGINE=InnoDB").AutoMigrate(&Account{})
 
 ```
 
-### 自定義 column 名稱
+#### 檢查
+
+```go
+
+// 用 struct 檢查 table 是否存在
+db.HasTable(&Account{})
+
+// 用 字串常數 檢查 table 是否存在
+db.HasTable("Account")
+
+```
+
+#### 新建
+
+```go
+
+db.CreateTable(&Account{})
+
+```
+
+#### 刪除
+
+```go
+
+db.DropTable(&Account{})
+
+db.DropTable("account")
+
+db.DropTable(&Account{},"account")
+
+db.DropTableIfExists((&Account{},"account")
+
+```
+
+
+### Column
+
+#### 自定義 column 名稱
 
 ```go
 
@@ -130,3 +172,6 @@ type Student struct {
 ----
 
 [struct](/Common/Note/Struct.md)
+
+## 常用反射(reflect)屬性
+
