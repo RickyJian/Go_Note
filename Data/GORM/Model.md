@@ -151,7 +151,6 @@ db.DropTableIfExists((&Account{},"account")
 
 ```
 
-
 ### Column
 
 #### 自定義 column 名稱
@@ -169,9 +168,70 @@ type Student struct {
 
 ```
 
+#### 異動
+
+```go
+
+db.Model(&Student{}).ModifyColumn("ID", "int")
+
+```
+
+#### 刪除
+
+```go
+
+db.Model(&Student{}).DropColumn("Gender")
+
+```
+
+#### 新增 FK
+
+```go
+
+// param1：FK Field
+// param2：Table Id
+// param3：ONDELETE
+// param4：ONUPDATE
+db.Model(&Student{}).AddForeignKey("CreateID", "account(userID)", "RESTRICT", "RESTRICT")
+
+```
+
+#### Indexes
+
+##### 新增 index
+
+```go
+
+// param1：index name
+// param2：column name
+db.Model(&Student{}).AddIndex("idx_student_name", "name")
+
+db.Model(&Student{}).AddIndex("idx_student_name_gender", "name", "gender")
+
+```
+
+##### 新增 UQ
+
+```go
+
+// param1：index name
+// param2：column name
+db.Model(&Student{}).AddUniqueIndex("idx_student_name", "name")
+
+db.Model(&Student{}).AddUniqueIndex("idx_student_name_gender", "name", "gender")
+
+```
+
+##### 刪除 index
+
+```go
+
+db.Model(&Student{}).RemoveIndex("idx_user_name")
+
+```
+
 ----
 
 [struct](/Common/Note/Struct.md)
 
-## 常用反射(reflect)屬性
 
