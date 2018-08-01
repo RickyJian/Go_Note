@@ -321,3 +321,50 @@ type Language struct {
 }
 
 ```
+
+#### 指定 FK&Association FK
+
+```go
+
+type Role struct {
+    RoleID string `gorm:"primary_key"`
+    Name string
+}
+
+type Account struct {
+    AccountID string `gorm:"primary_key"`
+    Roles []Role `gorm:"many2many:AccountRole;association_foreignkey:RoleID;foreignkey:AccountID"`
+}
+
+
+```
+
+#### Jointable ForeignKey
+
+倘若你想更改 join table's foreign key ， 須要使用 `association_jointable_foreignkey` , `jointable_foreignkey`
+
+```go
+
+type Role struct {
+    RoleID string `gorm:"primary_key"`
+    Name string
+}
+
+type Account struct {
+    AccountID string `gorm:"primary_key"`
+    Roles []Role `gorm:"many2many:AcountRole;foreignkey:AccountID;association_foreignkey:RoleID;association_jointable_foreignkey:role_id;jointable_foreignkey:account_id;"`
+}
+
+
+```
+
+#### Self-Referencing
+
+```go
+
+type Account struct {
+    AccountID string `gorm:"primary_key"`
+    Friends []*Account `gorm:"many2many:friendships;association_jointable_foreignkey:friend_id"`
+}
+
+```
