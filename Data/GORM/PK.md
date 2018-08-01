@@ -33,3 +33,14 @@ type Student struct {
 }
 
 ```
+
+## PK Callback
+
+```go
+
+func (a *Account) BeforeCreate(scope *gorm.Scope) error {
+    scope.SetColumn("ID", uuid.New())
+    return nil
+}
+
+```
