@@ -43,4 +43,4 @@ type Movie struct {
 
 ```
 
-> omitempty：若蘭為為其型別的零值或空則不應輸出
+> omitempty：若欄位為其型別的零值或空則不應輸出
