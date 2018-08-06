@@ -92,3 +92,21 @@ db.Where("name like ?", "%tud%").Find(&users)
 db.Where("name = ? AND id = ?", "student" , "100").Find(&users)
 
 ```
+
+### Or
+
+```go
+
+db.Where("name = ? " , "student").Or("id = ? ", 100).Find(&users)
+// select * from users where name = "student" or id = 100
+
+```
+
+## Not
+
+```go
+
+db.Not("name", "student").Find(&user)
+// select * from users where name <> "student"
+
+```
