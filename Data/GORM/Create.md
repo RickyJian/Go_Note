@@ -1,6 +1,6 @@
 # Create
 
-新增，但零值並不會寫入 DB，但零值可以當作 default
+新增，零值並不會寫入 DB，但零值可以當作 default
 
 ```go
 
