@@ -113,6 +113,47 @@ db.Not("name", "student").Find(&user)
 
 ```
 
+## Order
+
+```go
+
+db.Order("id desc, name").Find(&users)
+// select * from users ORDER BY id desc, name;
+
+db.Order("id desc").Order("name").Find(&users)
+// select * from users ORDER BY id desc, name;
+
+```
+
+## Limit
+
+```go
+
+db.Limit(5).Find(&users)
+// select * from users limit 5
+
+```
+
+## Offset
+
+```go
+
+db.Offset(5).Find(&users)
+// select * from users Offset 5
+
+```
+
+## Count
+
+在 Query Chain 中只能放在最後
+
+```go
+
+db.Find(&users).Count(&count)
+// select count(*) from users 
+
+```
+
 ## Query Chains
 
 ```go
@@ -131,6 +172,5 @@ db.Select("name, age").Find(&users)
 
 db.Select([]string{"name", "age"}).Find(&users)
 // SELECT name, age FROM users;
-
 
 ```
