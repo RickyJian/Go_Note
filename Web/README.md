@@ -1,30 +1,21 @@
-# Go Web Note
+# GO Web 筆記
 
-`Go` Web 程式開發
+## ListenAndServe
 
-## 請求(Rquest)、回應(Response)
+第一支 Go web 程式
 
-###  Go Web 工作概念
+## NewServeMux
 
-| 名稱 | 說明 |
-| ----- | ----- | 
-| Request | 使用者請求資訊，用來解析使用者請求資訊 |
-| Response | Server 回饋給 Client 的資訊 |
-| Conn | 使用者請求連線 |
-| Handler | Request & Response 處理邏輯 |
+路由器配置
 
-### ListenAndServe
+## Cookie
 
-### ServeMux
+Cookie 配置
 
-### Handler Method And Handler Function
+## Form
 
-## 表單(Form)處理
+## 常用函式
 
-## 模板(Template)
+#### FileServer , Dir ,and StripPrefix
 
-## Others
-
-### HTTPS
-
-### AOP
+服務靜態檔案

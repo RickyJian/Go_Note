@@ -1,4 +1,12 @@
-# NewServeMux
+# 路由器
+
+## DefaultServeMux
+
+* 預設路由器
+* 實作 ServeMux Struct 與 Handler
+* 也是個處理器
+
+## NewServeMux
 
 自訂路由器
 
@@ -31,11 +39,3 @@ func hello(w http.ResponseWriter, r *http.Request) {
 
 
 ```
-
-## HandleFunc
-
-URL 請求導向處理器
-
-> mux.HandleFunc(URL , 處理函式)
-
-## HTTPS
