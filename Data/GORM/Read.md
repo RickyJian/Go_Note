@@ -121,3 +121,16 @@ db.Where("name = ?", "student" ).Not("id", 100 ).Find(&user)
 // select * from users where name = "student" and id != 100 
 
 ```
+
+## Select
+
+```go
+
+db.Select("name, age").Find(&users)
+// SELECT name, age FROM users;
+
+db.Select([]string{"name", "age"}).Find(&users)
+// SELECT name, age FROM users;
+
+
+```
