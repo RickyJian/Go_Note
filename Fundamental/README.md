@@ -247,8 +247,6 @@ fmt.printf
 
 自訂命令列
 
-## 常用函式
-
 ### Init
 
 套件初始化
@@ -256,3 +254,7 @@ fmt.printf
 ### MakeAndNew
 
 資料初始化，了解`new`與`make`的用法
+
+### File I/O
+
+檔案 寫入/寫出
