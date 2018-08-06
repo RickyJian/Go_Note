@@ -1,5 +1,7 @@
 # Read
 
+搜尋
+
 ## 基本
 
 ### First
@@ -49,8 +51,17 @@ db.Find(&user)
 db.Where("name = ?", "student").Find(&users)
 // SELECT * FROM users WHERE name = 'student'
 
-db.Where("id <> ?", "100").Find(&users)
+db.Where("id <> ?", 100).Find(&users)
 // SELECT * FROM users WHERE id <> '100'
+
+// struct
+db.Where(&User{Name: "student", id: 100}).Find(&user)
+// Select * from users where name = 'student' and id = 100
+
+// Map
+db.Where(map[string]interface{}{"name": "student", "id": 100}).Find(&users)
+// Select * from users where name = 'student' and id = 100
+
 
 ```
 
@@ -58,7 +69,11 @@ db.Where("id <> ?", "100").Find(&users)
 
 ```go
 
+// 以 name 做 in
 db.Where("name in (?)", []string{"student","student1"}).Find(&users)
+
+// 以 PK 做 in
+db.Where([]int64{20, 21, 22}).Find(&users)
 
 ```
 
