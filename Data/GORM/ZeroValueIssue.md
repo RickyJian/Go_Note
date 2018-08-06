@@ -12,7 +12,7 @@ db.Where(&Student{Name: "student", Gender: ""}).Find(&Student)
 ## 解決辦法
 
 * 使用指標
-* 使用`scanner/valuer`
+* 使用`scanner/value`
 
 ```go
 
@@ -23,7 +23,7 @@ type Student struct {
     Gender    *string
 }
 
-// scanner/valuer
+// scanner/value
 type User struct {
     ID        int
     Name      string
@@ -36,3 +36,4 @@ type User struct {
 -----
 
 [零值](/Fundamental/ZeroValue.md)
+[scanner/value](https://golang.org/pkg/database/sql/)
