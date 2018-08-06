@@ -16,7 +16,6 @@ db.Create(&account)
 
 判斷 PK 是否為 nil ， PK 為 nil 回傳 true
 
-
 ```go
 
 account := Account{Name: "test", Age: 18}
