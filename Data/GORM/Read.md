@@ -1,6 +1,8 @@
 # Read
 
-## First
+## 基本
+
+### First
 
 根據 PK 排序並獲取第一筆資料
 
@@ -16,7 +18,7 @@ db.First(&user, 10)
 
 ```
 
-## Last
+### Last
 
 根據 PK 排序獲取最後一筆資料
 
@@ -27,7 +29,7 @@ db.Last(&user)
 
 ```
 
-## Find
+### Find
 
 全撈
 
@@ -35,5 +37,43 @@ db.Last(&user)
 
 db.Find(&user)
 // select * from users
+
+```
+
+## Where
+
+### 一般
+
+```go
+
+db.Where("name = ?", "student").Find(&users)
+// SELECT * FROM users WHERE name = 'student'
+
+db.Where("id <> ?", "100").Find(&users)
+// SELECT * FROM users WHERE id <> '100'
+
+```
+
+### IN
+
+```go
+
+db.Where("name in (?)", []string{"student","student1"}).Find(&users)
+
+```
+
+### Like
+
+```go
+
+db.Where("name like ?", "%tud%").Find(&users)
+
+```
+
+### And
+
+```go
+
+db.Where("name = ? AND id = ?", "student" , "100").Find(&users)
 
 ```
