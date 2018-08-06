@@ -34,6 +34,7 @@
     * 匯出(Export)
     * 匯入(Import)
 
+> go 套件搜尋：http://godoc.org
 
 ### Identifier
 
@@ -167,6 +168,10 @@ for 迴圈使用方式
 
 迭代 array , slice , map 
 
+### Defer
+
+延遲
+
 ## 方法及函式
 
 ### Function
@@ -223,23 +228,24 @@ goroutine 之間連線
 
 ## 測試
 
-## 套件
-
-> go 套件搜尋：http://godoc.org
-
+-----
 ## 其他
+
+### ZeroValue
+
+零值初始
 
 ### JSON
 
 JSON 常用方法
 
-### Templete
-
-待補
-
 ### 字串格式化
 
 fmt.printf
+
+### flag
+
+自訂命令列
 
 ## 常用函式
 
