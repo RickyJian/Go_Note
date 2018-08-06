@@ -14,7 +14,7 @@
 db.First(&user)
 // select * from users order by id limit 1
 
-// 但參數，但只對 PK 型態為 int 才起作用
+// 帶參數，但只對 PK 型態為 int 才起作用
 db.First(&user, 10)
 // SELECT * FROM users WHERE id = 10;
 
@@ -48,9 +48,11 @@ db.Find(&user)
 
 ```go
 
+// inline 
 db.Where("name = ?", "student").Find(&users)
 // SELECT * FROM users WHERE name = 'student'
 
+// inline
 db.Where("id <> ?", 100).Find(&users)
 // SELECT * FROM users WHERE id <> '100'
 
@@ -108,5 +110,14 @@ db.Where("name = ? " , "student").Or("id = ? ", 100).Find(&users)
 
 db.Not("name", "student").Find(&user)
 // select * from users where name <> "student"
+
+```
+
+## Query Chains
+
+```go
+
+db.Where("name = ?", "student" ).Not("id", 100 ).Find(&user)
+// select * from users where name = "student" and id != 100 
 
 ```
