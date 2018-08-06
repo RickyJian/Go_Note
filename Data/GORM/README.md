@@ -8,13 +8,17 @@
 
 將 table 與 struct 做 mapping
 
+## Model Attribute
+
+常用 orm 屬性
+
 ## PK
 
 主鍵(Primary Key)設定
 
 ## FK&AssociationFK
 
-外建設定
+Model 外鍵設定
 
 ## Association Mode
 
@@ -23,3 +27,9 @@
 ## Migration
 
 DB Migrate
+
+----
+
+## 零值問題
+
+解決零值產生的問題
