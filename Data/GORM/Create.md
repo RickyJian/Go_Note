@@ -1,6 +1,4 @@
-# CRUD
-
-## Create
+# Create
 
 新增，但零值並不會寫入 DB，但零值可以當作 default
 
@@ -12,7 +10,7 @@ db.Create(&account)
 
 ```
 
-### NewRecord
+## NewRecord
 
 判斷 PK 是否為 nil ， PK 為 nil 回傳 true
 
@@ -24,7 +22,7 @@ db.NewRecord(account)
 
 ```
 
-### Callback
+## Callback
 
 ```go
 
