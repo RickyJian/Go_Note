@@ -166,6 +166,28 @@ db.Find(&users).Count(&count)
 
 ```
 
+## Group & Having
+
+```go
+
+rows, err := db.Table("orders").Select("date(created_at) as date, sum(amount) as total").Group("date(created_at)").Rows()
+for rows.Next() {
+    ...
+}
+
+rows, err := db.Table("orders").Select("date(created_at) as date, sum(amount) as total").Group("date(created_at)").Having("sum(amount) > ?", 100).Rows()
+for rows.Next() {
+    ...
+}
+
+type Result struct {
+    Date  time.Time
+    Total int64
+}
+db.Table("orders").Select("date(created_at) as date, sum(amount) as total").Group("date(created_at)").Having("sum(amount) > ?", 100).Scan(&results)
+
+```
+
 ## Query Chains
 
 ```go
