@@ -27,3 +27,23 @@ Model 外鍵設定
 ## Migration
 
 DB Migrate
+
+## Create
+
+新增資料
+
+## Read
+
+搜尋資料
+
+## AdvancedRead
+
+進階搜尋
+
+## Preloading
+
+-----
+
+## TableName
+
+指定 TableName
