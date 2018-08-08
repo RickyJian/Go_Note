@@ -27,9 +27,3 @@ Model 外鍵設定
 ## Migration
 
 DB Migrate
-
-----
-
-## 零值問題
-
-解決零值產生的問題
