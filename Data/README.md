@@ -2,9 +2,19 @@
 
 `database/sql` 資料庫抽象接口，用來管理資料庫連線、CRUD、交易…等基本 library
 
+database/sql：[連結](https://golang.org/pkg/database/sql)
+
 ## Driver
 
+SQL Driver 使用方法
+
 ## Connection
+
+SQL 連線
+
+## Read
+
+搜尋
 
 -----
 
