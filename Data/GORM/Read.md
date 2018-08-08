@@ -217,3 +217,37 @@ db.Where(User{Name: "初始化"}).Attrs(User{Age: 20}).FirstOrInit(&user)
 db.Where(User{Name: "初始化"}).Assign(User{Age: 20}).FirstOrInit(&user)
 
 ```
+
+## FirstOrCreate
+
+* 若找不到資料就將資料 insert 進 DB
+* 只有 struct、map 中使用
+
+```go
+
+// struct
+db.FirstOrCreate(&user, User{Name: "初始化"})
+
+```
+
+### Attr
+
+若找不到資料就初始化 field ，並新增進 DB
+
+```go
+
+db.Where(User{Name: "初始化"}).Attrs(User{Age: 20}).FirstOrCreate(&user)
+
+```
+
+### Assign
+
+* 若有資料，則直接指派值給 field 並更新 DB 資料
+* 沒有資料，則新增 DB 資料
+不管搜尋出來的資料與否，就直接指派值給 field
+
+```go
+
+db.Where(User{Name: "初始化"}).Assign(User{Age: 20}).FirstOrCreate(&user)
+
+```
