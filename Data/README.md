@@ -12,7 +12,7 @@ SQL Driver 使用方法
 
 SQL 連線
 
-## Read
+## Query
 
 搜尋
 
