@@ -2,7 +2,19 @@
 
 搜尋
 
-## 基本
+## Select
+
+```go
+
+db.Select("name, age").Find(&users)
+// SELECT name, age FROM users;
+
+db.Select([]string{"name", "age"}).Find(&users)
+// SELECT name, age FROM users;
+
+```
+
+## FROM
 
 ### First
 
@@ -104,7 +116,7 @@ db.Where("name = ? " , "student").Or("id = ? ", 100).Find(&users)
 
 ```
 
-## Not
+### Not
 
 ```go
 
@@ -163,14 +175,45 @@ db.Where("name = ?", "student" ).Not("id", 100 ).Find(&user)
 
 ```
 
-## Select
+## SubQuery
 
 ```go
 
-db.Select("name, age").Find(&users)
-// SELECT name, age FROM users;
+db.Where("amount > ?", DB.Table("orders").Select("AVG(amount)").Where("state = ?", "paid").QueryExpr()).Find(&orders)
 
-db.Select([]string{"name", "age"}).Find(&users)
-// SELECT name, age FROM users;
+```
+
+## FirstOrInit
+
+* 若找不到資料就初始化 struct
+* 只有 struct、map 中使用
+
+```go
+
+// struct
+db.FirstOrInit(&user, User{Name: "初始化"})
+
+// map
+db.FirstOrInit(&user, map[string]interface{}{"name": "初始化"})
+
+```
+
+### Attr
+
+若找不到資料就初始化 field
+
+```go
+
+db.Where(User{Name: "初始化"}).Attrs(User{Age: 20}).FirstOrInit(&user)
+
+```
+
+### Assign
+
+不管搜尋出來的資料與否，就直接指派值給 field
+
+```go
+
+db.Where(User{Name: "初始化"}).Assign(User{Age: 20}).FirstOrInit(&user)
 
 ```
