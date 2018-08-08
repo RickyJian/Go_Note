@@ -17,6 +17,7 @@ func main (){
     }
     vals := make([]interface {] , len(cols)})
     for i, _ := range cols {
+        //  sql.RawBytes：若不知 column type 時，可以用此
         vals[i] = new(sql.RawBytes)
     }
     for rows.Next() {
