@@ -41,3 +41,7 @@ SQL DRIVER：[連結](https://github.com/golang/go/wiki/SQLDrivers)
 ## 零值問題
 
 解決零值產生的問題
+
+## Columns
+
+`rows.Columns()` 使用
