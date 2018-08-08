@@ -38,3 +38,14 @@ if err != nil {
 }
 
 ```
+
+## connection pool
+
+```go
+
+// 設置最大空閒連接數
+db.SetMaxIdleConns(N)
+// 設置最大開啟連接數
+db.SetMaxOpenConns(N)
+
+```
