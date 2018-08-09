@@ -79,25 +79,6 @@ func (args ... interface{})
 
 ```
 
-## flag.Value
-
-定義新的命令列旗標
-
-```go
-// period 新的命令
-var period = flag.Duration("period", 1*time.Second, "sleep period")
-
-func main() {
-	flag.Parse()
-	fmt.Printf("Seeping for %v... ", *period)
-	time.Sleep(*period)
-	fmt.Println()
-}
-
-```
-
-> . / sleep -period 50ms
-
 ## 介面值
 
 * 介面型別的值
@@ -114,13 +95,14 @@ func main() {
 
 動態分發後獲得的值
 
-## 型別判別
+## 型別判別與指派
 
 * x.(T)：x為介面型別運算式，T為要判別的型別
 * 動態辨別這些型別並以不同方式處理，x.(type)
 
 ```go
 
+// 判別
 switch x.(type){
     case nil:
     case int:
@@ -129,6 +111,9 @@ switch x.(type){
     default:
     
 }
+
+// 指派
+x.(string)
 
 ```
 
