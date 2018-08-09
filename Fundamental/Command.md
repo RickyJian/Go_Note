@@ -6,9 +6,16 @@
 
 執行 `go` 程式
 
-```go
+```shell
 
 go run xx.go
+
+```
+### 競爭檢查器
+
+```shell
+
+go build -race
 
 ```
 
@@ -17,9 +24,17 @@ go run xx.go
 編譯 `.go` 檔案，並在目錄中產生執行檔
 
 
-```go
+```shell
 
 go build 
+
+```
+
+### 競爭檢查器
+
+```shell
+
+go build -race
 
 ```
 
@@ -33,7 +48,7 @@ go build
 
 抓取程式碼丟進相對應的目錄下
 
-```go
+```shell
 
 go get url 
 
