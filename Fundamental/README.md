@@ -230,6 +230,13 @@ goroutine 之間連線
 
 ### 互斥鎖
 
+* mutex
+* rwmutex
+
+### 初始化
+
+once
+
 ## 測試
 
 -----
