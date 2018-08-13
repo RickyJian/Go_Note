@@ -63,3 +63,8 @@ $ go get url
 ## go env
 
 查看系統變數
+
+## go test
+
+* Go 套件測試工具
+* 套件以 _test.go 做結尾，並以 go test 建構
