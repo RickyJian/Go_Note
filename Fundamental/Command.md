@@ -8,25 +8,26 @@
 
 ```shell
 
-go run xx.go
+$ go run xx.go
 
 ```
 ### 競爭檢查器
 
 ```shell
 
-go build -race
+$ go build -race
 
 ```
 
 ## go build 
 
-編譯 `.go` 檔案，並在目錄中產生執行檔
+* 編譯 `.go` 檔案，並在目錄中產生執行檔
+* 建構套件與其相依檔案，然後拋棄所有編譯過的碼，只留下可執行檔案
 
 
 ```shell
 
-go build 
+$ go build 
 
 ```
 
@@ -34,13 +35,14 @@ go build
 
 ```shell
 
-go build -race
+$ go build -race
 
 ```
 
 ## go install
 
-編譯 `.go` 檔案，並在目前工作區產生執行檔
+* 編譯 `.go` 檔案，並在目前工作區產生執行檔
+* 建構套件與其相依檔案，會儲存每個套件與命令編譯過的程式碼而不是將它拋棄
 
 > 當 `GOPATH`包含多個環境目錄，此時指令就會失敗，必須設定環境變數`GOBIN`
 
@@ -50,7 +52,7 @@ go build -race
 
 ```shell
 
-go get url 
+$ go get url 
 
 ```
 
