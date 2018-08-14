@@ -68,3 +68,15 @@ $ go get url
 
 * Go 套件測試工具
 * 套件以 _test.go 做結尾，並以 go test 建構
+
+```shell
+
+$ go test
+
+// 輸出套件中每個測試的名稱與執行時間
+$ go test -v
+
+// 指定執行測試
+$ go test -run="Mutilple"
+
+```
