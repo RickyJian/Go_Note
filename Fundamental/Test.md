@@ -111,6 +111,46 @@ func Product(x, y int) int {
 
 ```
 
+### 隨機化測試
+
+* 建構隨機輸入進行廣泛的測試
+* 會記錄測試失敗資料
+
+```go
+
+package main
+
+import (
+	"math/rand"
+	"testing"
+	"time"
+)
+
+func randSum(rng *rand.Rand) (x, y, want int) {
+	x = rng.Intn(10)
+	y = rng.Intn(10)
+	want = rng.Intn(20)
+	return
+}
+func TestRandSum(t *testing.T) {
+	seed := time.Now().UTC().UnixNano()
+	t.Logf("Random Seed: %d", seed)
+	rng := rand.New(rand.NewSource(seed))
+	for i := 0; i < 100; i++ {
+		x, y, want := randSum(rng)
+		if got := Sum(x, y); got != want {
+			t.Errorf("Sum was incorrect, got: %d, want: %d.", got, want)
+		}
+	}
+}
+
+func Sum(x, y int) int {
+	return x + y
+}
+
+
+```
+
 ## 基準測試
 
 函式名稱以 Benchmark 開頭，評估函式效能
