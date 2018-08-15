@@ -31,4 +31,7 @@ $ go test -bench='.'
 執行函式 Sum 基準測試
 $ go test -bench='Sum'
 
+匯出記憶體分配及統計
+$ go test -bench='Sum' -benchmem
+
 ```
