@@ -16,6 +16,14 @@
 
 函式名稱以 Example 開頭，提供機器檢查文件
 
+```go
+
+func ExampleSum(){
+    
+}
+
+```
+
 -----
 
 [Command](Command.md)
