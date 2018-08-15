@@ -163,3 +163,37 @@ $ go tool cover -html=c.out
 
 `-coverprofile`：指定輸出文件
 `-html`：指定輸出格式
+
+## 效能評估
+
+側寫(profile)檔案必須使用 pprof 工具分析
+
+```shell
+
+$ go tool pprof cpu.out
+
+```
+
+### CPU 效能評估
+
+```shell
+
+$ go test -cpuprofile= 'cpu.out'
+
+```
+
+### Heap 效能評估
+
+```shell
+
+$ go test -memprofile= 'mem.out'
+
+```
+
+### blocking 效能評估
+
+```shell
+
+$ go test -blockprofile= 'block.out'
+
+```
