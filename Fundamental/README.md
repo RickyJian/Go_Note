@@ -260,9 +260,15 @@ JSON 常用方法
 
 fmt.printf
 
+## flag
+
 ### flag
 
 自訂命令列
+
+### flag teat
+
+撰寫命令 Test 
 
 ### Init
 
