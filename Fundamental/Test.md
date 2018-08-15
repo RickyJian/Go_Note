@@ -151,6 +151,21 @@ func Sum(x, y int) int {
 
 ```
 
+### 覆蓋率
+
+套件受測試的程度稱為測試的覆蓋率
+
+```shell
+
+$ go test -run=Sum -coverprofile='c.out' folder
+
+$ go tool cover -html=c.out
+
+```
+
+`-coverprofile`：指定輸出文件
+`-html`：指定輸出格式
+
 ## 基準測試
 
 函式名稱以 Benchmark 開頭，評估函式效能
