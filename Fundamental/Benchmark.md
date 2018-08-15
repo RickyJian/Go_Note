@@ -34,4 +34,7 @@ $ go test -bench='Sum'
 匯出記憶體分配及統計
 $ go test -bench='Sum' -benchmem
 
+關閉 UnitTest 函式
+$ go test -run=NONE -bench='Sum' -benchmem
+
 ```
