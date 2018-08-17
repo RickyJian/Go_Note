@@ -37,3 +37,43 @@ t.Fatal("Fatal...")
 t.Fatalf("Fatal...%d",1)
 
 ```
+
+## Fail
+
+標記測試是失敗的，但不會終止目前測試函示執行
+
+```go
+
+t.Fail("Fail...")
+
+```
+
+## FailNow
+
+標記測試是失敗的，立即終止目前測試函示執行
+
+```go
+
+t.FailNow("FailNow...")
+
+```
+
+## Failed
+
+判斷測試函式是否被標記為失敗
+
+```go
+
+t.Failed()
+
+```
+
+## SkipNow
+
+忽略測試函式
+
+```go
+
+t.SkipNow()
+
+```
