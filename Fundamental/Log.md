@@ -77,3 +77,13 @@ t.Failed()
 t.SkipNow()
 
 ```
+
+## Skipped
+
+判斷測試函式是否被標記為忽略
+
+```go
+
+t.Skipped()
+
+```
