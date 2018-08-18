@@ -27,3 +27,9 @@ Cookie 配置
 ### FileServer , Dir ,and StripPrefix
 
 服務靜態檔案
+
+-----
+
+## AOP
+
+面向導向程式設計
