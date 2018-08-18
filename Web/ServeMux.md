@@ -4,7 +4,19 @@
 
 * 預設路由器
 * 實作 ServeMux Struct 與 Handler
-* 也是個處理器
+* 是個處理器
+
+```go
+
+import (
+	"net/http"
+)
+
+func mian (){
+	http.ListenAndServe("",nil)
+}
+
+```
 
 ## NewServeMux
 
