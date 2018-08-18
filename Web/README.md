@@ -12,6 +12,10 @@ HTTPS 服務
 
 路由器配置
 
+## Handler Method And Function
+
+處理器及處理函式
+
 ## Cookie
 
 Cookie 配置
