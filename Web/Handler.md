@@ -32,7 +32,7 @@ func main() {
 ### 多處理器
 
 * 使用多處理器處理不同URL，因此我們會使用 DefaultServeMux 做為處理器。
-* 透過 http.handle 函數將處理器綁定至 DefaultServeMux
+* 透過 http.Handle 函數將處理器綁定至 DefaultServeMux
 
 ```go
 
@@ -65,6 +65,8 @@ func main() {
 
 * 與處理器擁有相同行為的函式
 * 將一個正確簽名的函數傳換成方法，並將它與 DefaultServeMux 綁定
+
+> http.HandleFunc("url",func)：把函式 f 轉換成帶有方法 f 的 Handler
 
 ```go
 
