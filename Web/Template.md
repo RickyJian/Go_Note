@@ -6,5 +6,62 @@
     * 無邏輯模板(logic-less template engine)：只進行字串替換不進行邏輯處理
     * 嵌入邏輯模板(embedded logic template engine)：將程式寫入模板中並做字串替代
 
+## 前端
+
+### 動作(action)
+
+模板中的默認動作須使用`{{`和`}}`包圍
+
+```HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {{ . }}
+</body>
+</html>
+
+```
+
+## 後端
+
+### ParseFiles() & Execute()
+
+ParseFiles()：解析模板
+
+Execute()：將資料綁定模板中，模板在生成 HTML 之後會將該 HTML 傳給 ResponseWriter
+
+```go
+
+package main
+
+import (
+	"html/template"
+	"net/http"
+)
+
+func process(w http.ResponseWriter, r *http.Request) {
+    // 解析模板
+    t, _ := template.ParseFiles("index.html")
+    // 將資料綁釘模板
+	t.Execute(w, "Hello")
+}
+
+func main() {
+	mux := http.NewServeMux()
+	server := http.Server{
+		Addr:    "127.0.0.1:8080",
+		Handler: mux,
+	}
+	mux.HandleFunc("/process", process)
+	server.ListenAndServe()
+}
 
 
+```
