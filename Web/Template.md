@@ -33,7 +33,7 @@
 
 ### ParseFiles() & Execute()
 
-ParseFiles()：解析模板
+ParseFiles()：解析模板，當使用者使用此函式時，Go 會創建一個新模板，並指定此文件名稱為新模板名稱
 
 Execute()：將資料綁定模板中，模板在生成 HTML 之後會將該 HTML 傳給 ResponseWriter
 
