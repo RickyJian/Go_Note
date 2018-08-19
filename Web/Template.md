@@ -47,8 +47,12 @@ import (
 )
 
 func process(w http.ResponseWriter, r *http.Request) {
-    // 解析模板
+    // 新建模板
+    t := template.New("index.html")
+    // 新建&解析模板
     t, _ := template.ParseFiles("index.html")
+    // Must()：當有錯誤會導致 panic 產生
+    t, _ := template.Must(template.ParseFiles("index.html"))
     // 將資料綁釘模板
 	t.Execute(w, "Hello")
 }
@@ -62,6 +66,28 @@ func main() {
 	mux.HandleFunc("/process", process)
 	server.ListenAndServe()
 }
+
+
+```
+
+## ParseGlob()
+
+對所有指定到的檔案視為模板
+
+```go
+
+template.ParseGlob("*.html")
+
+```
+
+## ExecuteTemplate()
+
+執行模板集合或其他模板
+
+```go
+
+t , _ := template.ParseFiles("t1.html","t2.html")
+t.ExecuteTemplate(w,"t2.html","t2 template")
 
 
 ```
