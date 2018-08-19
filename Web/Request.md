@@ -1,6 +1,6 @@
 # Request
 
-`net/http` 的 `http.Request` 方法
+`net/http` 的 `http.Request`
 
 ## Header 
 
