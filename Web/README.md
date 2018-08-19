@@ -8,6 +8,10 @@
 
 HTTPS 服務
 
+## HTTP2
+
+HTTP/2 服務
+
 ## ServeMux
 
 路由器配置
