@@ -38,3 +38,37 @@ func main() {
 
 
 ```
+
+## Body
+
+讀取 request body
+
+```go
+
+package main
+
+import (
+	"fmt"
+	"net/http"
+)
+
+func body(w http.ResponseWriter, r *http.Request) {
+	// 獲取 body 長度
+	len := r.ContentLength
+	body := make([]byte, len)
+	// 讀取 body 內容
+	r.Body.Read(body)
+	fmt.Fprintln(w, string(body))
+}
+
+func main() {
+	mux := http.NewServeMux()
+	server := http.Server{
+		Addr:    "127.0.0.1:8080",
+		Handler: mux,
+	}
+	mux.HandleFunc("/body", body)
+	server.ListenAndServe()
+}
+
+```
