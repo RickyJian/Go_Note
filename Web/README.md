@@ -26,6 +26,10 @@ HTTP/2 服務
 
 [連結](https://github.com/julienschmidt/httprouter)
 
+## Request
+
+`net/http` 的 `http.Request` 方法
+
 ## Cookie
 
 Cookie 配置
