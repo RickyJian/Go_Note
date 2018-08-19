@@ -19,8 +19,9 @@ import (
 func headers(w http.ResponseWriter, r *http.Request) {
     // Header 全參數
     h := r.Header
-    // Header 指定參數(Accept-Encoding)
+    // Header 指定參數(Accept-Encoding)，回傳 string slice 
 	h2 := r.Header["Accept-Encoding"]
+    // Header 指定參數(Accept-Encoding)，回傳 string
 	h3 := r.Header.Get("Accept-Encoding")
 	fmt.Fprintln(w, h, h2, h3)
 }
