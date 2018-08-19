@@ -32,7 +32,7 @@ func mian (){
 		Addr: "127.0.0.1:8080",
 		Handler: nil,
 	}
-	server.ListenAndServe("",nil)
+	server.ListenAndServe()
 }
 
 ```
