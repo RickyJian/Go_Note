@@ -52,6 +52,53 @@
 
 ```
 
+## 迭代
+
+```HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {{ range . }}
+        <li>{{ . }}</li>
+    {{ end }}
+</body>
+</html>
+
+```
+
+### fallback
+
+當迭代為空時，則執行 fallback 結果
+
+```HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {{ range . }}
+        <li>{{ . }}</li>
+    {{ else }}}
+    <li>沒有資料顯示</li>
+    {{ end }}
+</body>
+</html>
+
+```
+
+
 ## 後端
 
 ### ParseFiles() & Execute()
