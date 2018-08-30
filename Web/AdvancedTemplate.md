@@ -185,3 +185,34 @@ func main() {
 }
 
 ```
+
+## template.HTML
+
+不逸出(escape)HTML
+
+```go
+
+package main
+
+import (
+	"html/template"
+	"net/http"
+)
+
+func templateExample(w http.ResponseWriter, r *http.Request) {
+	t, _ := template.ParseFiles("index.html")
+	content := "<i> Escape </i>"
+	t.Execute(w, template.HTML(content))
+}
+
+func main() {
+	mux := http.NewServeMux()
+	server := http.Server{
+		Addr:    "127.0.0.1:8080",
+		Handler: mux,
+	}
+	mux.HandleFunc("/template", templateExample)
+	server.ListenAndServe()
+}
+
+```
