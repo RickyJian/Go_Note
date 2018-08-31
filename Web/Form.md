@@ -2,7 +2,8 @@
 
 ## ParseForm()
 
-解析 Form 表單
+* 解析 Form 表單，包含 URL Query 及 form 內容
+* 結構為 Map，key 型態為 string ， value 型態為 string slice
 
 ### 前端
 
@@ -18,7 +19,7 @@
 </head>
 <body>
 </body>
-    <form action="http://127.0.0.1:8080/process" method="post">
+    <form action="http://127.0.0.1:8080/process?gender=male" method="post">
         <input type="text" name="username" id="username">
         <input type="submit" value="送出">
     </form>
@@ -39,8 +40,8 @@ import (
 )
 
 func process(w http.ResponseWriter, r *http.Request) {
-	// 解析 form
-	r.ParseForm()
+	// 解析 form，解析結果 map[username:[test] gender:[male]]
+    r.ParseForm()
 	fmt.Fprintln(w, r.Form)
 }
 
