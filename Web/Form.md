@@ -1,11 +1,20 @@
 # 表單(Form)處理
 
-## ParseForm()
+## 表單解析
+
+| 方法 | 解析 | 編碼方式 |
+| ----- | ----- | ----- |
+| ParseForm | URL、Form | URL Encode |
+| PostForm | Form | URL Encode |
+| ParseMultipartForm | Form | Multipart Encode |
+
+### ParseForm()
 
 * 解析 Form 表單，包含 URL Query 及 form 內容
-* 結構為 Map，key 型態為 string ， value 型態為 string slice
+* 結構為 Map，key 型態為 string，value 型態為 string slice
+* HTML Form enctype 為 application/x-www-form-urlencoded
 
-### 前端
+#### 前端
 
 ```html
 
@@ -19,7 +28,7 @@
 </head>
 <body>
 </body>
-    <form action="http://127.0.0.1:8080/process?gender=male" method="post">
+    <form action="http://127.0.0.1:8080/process?gender=male" method="post" enctype = "application/x-www-form-urlencoded">
         <input type="text" name="username" id="username">
         <input type="submit" value="送出">
     </form>
@@ -27,7 +36,7 @@
 
 ```
 
-### 後端
+#### 後端
 
 ```go
 
@@ -63,78 +72,73 @@ func main() {
 
 ```
 
-## 表單輸入
+### PostForm()
 
-> content-type：決定 POST 請求用何種格式傳送，由 form tag 的 enctype 指定，預設為 `application/x-www-form-urlencoded`
+### ParseMultipartForm()
 
-```html
-<!-- 前端 -->
-<html>
-    <head>
-        <title>
-        </title>
-    </head>
-    <body>
-        <form action =  "http://localhost:9090/Login" method = "post">
-            username: <input type = "text" name = "username"> 
-            password: <input type = "password" name = "password">
-            <input type = "submit" value = "登入"> 
-        </form>
-    </body>
+* 解析 MultipartForm 表單
+* 結構為2個 Map，
+    * 第1個 Map：key 型態為 string，value 型態為 string slice，存放一般 Form 內容
+    * 第2個 Map：key 型態為 string，value 型態為 string slice，存放 上傳檔案 內容
+* HTML Form enctype 為 multipart/form-data
+
+#### 前端
+
+```HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+</body>
+    <form action="http://127.0.0.1:8080/process" method="post" enctype="multipart/form-data">
+        <input type="file" name="uploadFile">
+        <input type="submit" value="送出">
+    </form>
 </html>
 
 ```
 
+#### 後端
+
 ```go
-// 後端
-package main 
+
+package main
 
 import (
-    "fmt"
-    "html/template"
-    "log"
-    "net/http"
-    "strings"
+	"fmt"
+	"html/template"
+	"net/http"
 )
 
-func sayHelloName (w http.ResponseWriter , r *http.Request){
-    r.ParseForm() // 參數解析，無此方法無法獲得 Form 參數
-    fmt.Println(r.Form)
-    fmt.Println("Path:",r.URL.Path)
-    fmt.Println("Scheme:",r.URL.Scheme)
-    fmt.Println(r.Form["url_long"])
-    for k,v := range r.Form {
-        fmt.Println("key:",k)
-        fmt.Println("val:",strings.Join(v,""))
-    }
-    fmt.Fprintf(w,"Hello") // 輸出到用戶端
+func process(w http.ResponseWriter, r *http.Request) {
+	// 解析 MultipartForm，上傳容量為 1024，結果為&{map[] map[uploadFile:[0xc04212e000]]}
+	r.ParseMultipartForm(1024)
+	fmt.Fprintln(w, r.MultipartForm)
 }
 
-func login (w http.ResponseWriter , r *http.Request){
-    fmt.Println("method:",r.Method) // 請求取得方法
-    if r.Method == "GET" {
-        t , _ := template.ParseFiles("login.html")
-        t.Execute(w,nil)
-    }else{
-        // form 回傳商模處理
-        fmt.Println("username:", r.Form["username"])
-        fmt.Println("password:", r.Form["password"])
-    }
+func index(w http.ResponseWriter, r *http.Request) {
+	t, _ := template.ParseFiles("index.html")
+	t.Execute(w, "index.html")
 }
 
-func main (){
-    http.HandleFunc("/",sayHelloName) // Route 設定
-    http.HandleFunc("/Login",login) // Route 設定
-    err := http.ListenAndServe(":9090",nil)
-    if err != nil {
-        log.Fatal("ListenAndServe:",err)
-    }
-
+func main() {
+	mux := http.NewServeMux()
+	server := http.Server{
+		Addr:    "127.0.0.1:8080",
+		Handler: mux,
+	}
+	mux.HandleFunc("/process", process)
+	mux.HandleFunc("/index", index)
+	server.ListenAndServe()
 }
 
 ```
-
-> r.Form["username"] 也可以用 r.FormValue("username") 代替，但當使用 r.FormValue 時可以不必呼叫 r.ParseForm
 
 -----
 
