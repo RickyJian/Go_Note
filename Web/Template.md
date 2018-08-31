@@ -159,6 +159,45 @@
 
 ```
 
+### 定義模板名稱並嵌入
+
+須使用 `{{ defined "name" }}`，name 為定義模板名稱
+
+嵌入模板名稱
+
+```html
+
+{{ defined "layout" }}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {{ template "content" }}
+</body>
+</html>
+
+{{ end }}
+
+```
+
+被嵌入模板名稱
+
+```html
+
+{{ defined "content" }}
+
+<div>HELLO</div>
+
+{{ end }}
+
+```
+
 ## 後端
 
 ### ParseFiles() & Execute()
