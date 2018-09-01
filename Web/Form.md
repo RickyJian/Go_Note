@@ -43,7 +43,7 @@ import (
 )
 
 func process(w http.ResponseWriter, r *http.Request) {
-	// 解析 form，解析結果 map[username:[test] gender:[male]]
+	// 解析 form
     r.ParseForm()
 	fmt.Fprintln(w, r.Form)
 }
@@ -109,7 +109,7 @@ import (
 )
 
 func process(w http.ResponseWriter, r *http.Request) {
-	// 解析 MultipartForm，上傳容量為 1024，結果為&{map[] map[uploadFile:[0xc04212e000]]}
+	// 解析 MultipartForm，上傳容量為 1024
 	r.ParseMultipartForm(1024)
 	fmt.Fprintln(w, r.MultipartForm)
 }
@@ -184,12 +184,43 @@ func process(w http.ResponseWriter, r *http.Request) {
 
 ```
 
-### 值
+### 表單值
 
-#### FormValue
+#### FormValue()
 
-#### PostFormValue
+解析 URL Query 和 Form 
 
+```go
+
+func process(w http.ResponseWriter, r *http.Request) {
+	r.ParseForm()
+	// 讀取 Form username 的值
+	username := r.FormValue("username")
+	// 讀取 Form email 的值
+	email := r.FormValue("email")
+	// 讀取 URL Query gender 的值
+	gender := r.FormValue("gender")
+	fmt.Fprintln(w, username, email, gender)
+}
+
+```
+
+#### PostFormValue()
+
+解析 Form 
+
+```go
+
+func process(w http.ResponseWriter, r *http.Request) {
+	r.ParseForm()
+	// 讀取 Form username 的值
+	username := r.PostFormValue("username")
+	// 讀取 Form email 的值
+	email := r.PostFormValue("email")
+	fmt.Fprintln(w, username, email)
+}
+
+```
 
 -----
 
