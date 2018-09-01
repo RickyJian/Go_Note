@@ -2,12 +2,6 @@
 
 ## 表單解析
 
-| 方法 | 解析 | 編碼方式 |
-| ----- | ----- | ----- |
-| ParseForm | URL、Form | URL Encode |
-| PostForm | Form | URL Encode |
-| ParseMultipartForm | Form | Multipart Encode |
-
 ### ParseForm()
 
 * 解析 Form 表單，包含 URL Query 及 form 內容
@@ -71,8 +65,6 @@ func main() {
 }
 
 ```
-
-### PostForm()
 
 ### ParseMultipartForm()
 
@@ -139,6 +131,65 @@ func main() {
 }
 
 ```
+
+## 表單讀取
+
+### 全
+
+| 方法 | 解析 | 編碼方式 |
+| ----- | ----- | ----- |
+| Form | URL、Form | URL Encode |
+| PostForm | Form | URL Encode |
+| MultipartForm | Form | Multipart Encode |
+
+#### Form
+
+解析 URL Query 和 Form 
+
+```go
+
+func process(w http.ResponseWriter, r *http.Request) {
+	// 解析 form，解析結果 map[username:[test] gender:[male]]
+    r.ParseForm()
+	fmt.Fprintln(w, r.Form)
+}
+
+```
+
+#### PostForm
+
+解析 Form 
+
+```go
+
+func process(w http.ResponseWriter, r *http.Request) {
+	// 解析 form，解析結果 map[username:[test]]
+	r.ParseForm()
+	fmt.Fprintln(w, r.PostForm)
+}
+
+```
+
+#### MultipartForm
+
+解析 Form 
+
+```go
+
+func process(w http.ResponseWriter, r *http.Request) {
+	// 解析 MultipartForm，上傳容量為 1024，結果為&{map[] map[uploadFile:[0xc04212e000]]}
+	r.ParseMultipartForm(1024)
+	fmt.Fprintln(w, r.MultipartForm)
+}
+
+```
+
+### 值
+
+#### FormValue
+
+#### PostFormValue
+
 
 -----
 
