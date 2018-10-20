@@ -258,6 +258,7 @@ Go 文件註解
 ## Log
 
 -----
+
 ## 其他
 
 ### ZeroValue
@@ -272,15 +273,13 @@ JSON 常用方法
 
 fmt.printf
 
-## flag
-
 ### flag
 
 自訂命令列
 
 ### flag teat
 
-撰寫命令 Test 
+撰寫命令 Test
 
 ### Init
 
@@ -293,3 +292,7 @@ fmt.printf
 ### File I/O
 
 檔案 寫入/寫出
+
+### 正則表示式(Regex)
+
+[原文網址](https://golang.org/pkg/regexp/#example_Regexp_MatchString)
