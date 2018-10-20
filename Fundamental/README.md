@@ -293,6 +293,6 @@ fmt.printf
 
 檔案 寫入/寫出
 
-### 正則表示式(Regex)
+### 正規表示式(Regex)
 
 [原文網址](https://golang.org/pkg/regexp/#example_Regexp_MatchString)
