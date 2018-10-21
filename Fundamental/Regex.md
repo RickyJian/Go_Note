@@ -54,15 +54,58 @@ fmt.Println(r.MatchString("happy"))   // true
 
 ### FindString
 
+找出第一個符合表示式的字串，回傳型態為字串
+
+```go
+
+r := regexp.MustCompile("o{2}")
+fmt.Println(r.FindString("google doodle noodle bool")) // 回傳 oo  
+
+```
+
 ### FindStringIndex
+
+找出第一個符合表示式的字串，回傳型態為整數 slice 型態
+
+```go
+
+r := regexp.MustCompile("o{2}")
+fmt.Println(r.FindStringIndex("google doodle noodle bool")) // 回傳 [1 3]
+
+```
 
 ### FindAllString
 
+找出第一個符合表示式的字串，回傳型態為字串 slice 型態，參數 1 為要找出的字串，參數 2 回傳 slice 數量，-1 為全部回傳
+
+```go
+
+r := regexp.MustCompile("o{2}")
+fmt.Println(r.FindAllString("google doodle noodle bool",-1)) // 回傳 [oo oo oo oo]
+
+```
+
 ### FindAllStringIndex
+
+找出第一個符合表示式的字串，回傳型態為整數二維 slice 型態，參數 1 為要找出的字串，參數 2 回傳 slice 數量，-1 為全部回傳
+
+```go
+
+r := regexp.MustCompile("o{2}")
+fmt.Println(r.FindAllString("google doodle noodle bool",-1)) // 回傳 [[1 3] [8 10] [15 17] [22 24]]
+
+```
 
 ### ReplaceAllLiteralString
 
-### ReplaceAllString
+當表示式符合時，以字串實字方式替換原字串中的字，參數 1 被替換的字串，參數 2 替換用的字串
+
+```go
+
+r := regexp.MustCompile("o{2}")
+fmt.Println(r.ReplaceAllLiteralString("google doodle noodle bool","00"))  // 回傳 g00gle d00dle n00dle b00l
+
+```
 
 ## 表示式符號
 
@@ -91,117 +134,106 @@ fmt.Println(r.MatchString("happy"))   // true
 
 ```go
 
-  // 範例 ^
-  r := regexp.MustCompile("^Apple")
-  fmt.Println(r.MatchString("Apple"))   // true
-  fmt.Println(r.MatchString("apple"))   // false
+// 範例 ^
+r := regexp.MustCompile("^Apple")
+fmt.Println(r.MatchString("Apple"))   // true
+fmt.Println(r.MatchString("apple"))   // false
 
-  // 範例 $
-  r := regexp.MustCompile("Apple$")
-  fmt.Println(r.MatchString("Apple"))   // true
-  fmt.Println(r.MatchString("ApplE"))   // false
+// 範例 $
+r := regexp.MustCompile("Apple$")
+fmt.Println(r.MatchString("Apple"))   // true
+fmt.Println(r.MatchString("ApplE"))   // false
 
-  // 範例 .
-  r := regexp.MustCompile("App.e")
-  fmt.Println(r.MatchString("Apple"))   // true
+// 範例 .
+r := regexp.MustCompile("App.e")
+fmt.Println(r.MatchString("Apple"))   // true
 
-  // 範例 *
-  r := regexp.MustCompile("hap*y")
-  fmt.Println(r.MatchString("happy"))   // true
-  fmt.Println(r.MatchString("hapy"))    // true
-  fmt.Println(r.MatchString("hapsy"))   // false
+// 範例 *
+r := regexp.MustCompile("hap*y")
+fmt.Println(r.MatchString("happy"))   // true
+fmt.Println(r.MatchString("hapy"))    // true
+fmt.Println(r.MatchString("hapsy"))   // false
 
-  // 範例 +
+// 範例 +
+r := regexp.MustCompile("hap+y")
+fmt.Println(r.MatchString("happy"))   // true
+fmt.Println(r.MatchString("happppy")) // true
+fmt.Println(r.MatchString("hay"))     // false
 
-  r := regexp.MustCompile("hap+y")
-  fmt.Println(r.MatchString("happy"))   // true
-  fmt.Println(r.MatchString("happppy")) // true
-  fmt.Println(r.MatchString("hay"))     // false
+// 範例 ?
+r := regexp.MustCompile("hap?y")
+fmt.Println(r.MatchString("happy"))   // false
+fmt.Println(r.MatchString("hapy"))    // true
+fmt.Println(r.MatchString("hay"))     // true
 
-  // 範例 ?
+// 範例 \s
+r := regexp.MustCompile("hap\\sy")
+fmt.Println(r.MatchString("hap y"))   // true
+fmt.Println(r.MatchString("happy"))   // false
 
-  r := regexp.MustCompile("hap?y")
-  fmt.Println(r.MatchString("happy"))   // false
-  fmt.Println(r.MatchString("hapy"))    // true
-  fmt.Println(r.MatchString("hay"))     // true
+// 範例 \S
+r := regexp.MustCompile("hap\\Sy")
+fmt.Println(r.MatchString("happy"))   // true
+fmt.Println(r.MatchString("hap y"))   // false
 
-  // 範例 \s
+// 範例 \d
+r := regexp.MustCompile("hap\\dy")
+fmt.Println(r.MatchString("hap9y"))   // true
+fmt.Println(r.MatchString("happy"))   // false
 
-  r := regexp.MustCompile("hap\\sy")
-  fmt.Println(r.MatchString("hap y"))   // true
-  fmt.Println(r.MatchString("happy"))   // false
+// 範例 \D
+r := regexp.MustCompile("hap\\Dy")
+fmt.Println(r.MatchString("happy"))   // true
+fmt.Println(r.MatchString("hap9y"))   // false
 
-  // 範例 \S
+// 範例 \w
+r := regexp.MustCompile("hap\\wy")
+fmt.Println(r.MatchString("happy"))   // true
+fmt.Println(r.MatchString("hap y"))   // false
 
-  r := regexp.MustCompile("hap\\Sy")
-  fmt.Println(r.MatchString("happy"))   // true
-  fmt.Println(r.MatchString("hap y"))   // false
+// 範例 \W
+r := regexp.MustCompile("hap\\wy")
+fmt.Println(r.MatchString("hap y"))   // true
+fmt.Println(r.MatchString("happy"))   // false
 
-  // 範例 \d
+// 範例 \B
+r := regexp.MustCompile("app\\B")
+fmt.Println(r.MatchString("happy"))   // true
+fmt.Println(r.MatchString("apple"))   // true
+fmt.Println(r.MatchString("webapp"))  // false
 
-  r := regexp.MustCompile("hap\\dy")
-  fmt.Println(r.MatchString("hap9y"))   // true
-  fmt.Println(r.MatchString("happy"))   // false
+// 範例 (a|b)
+r := regexp.MustCompile("(bbc|cnn)news")
+fmt.Println(r.MatchString("bbcnews"))   // true
+fmt.Println(r.MatchString("cnnnews"))   // true
+fmt.Println(r.MatchString("tvbsnews"))  // false
 
-  // 範例 \D
+// 範例 []
+r := regexp.MustCompile("[beilmow]app")
+fmt.Println(r.MatchString("webapp"))    // true
+fmt.Println(r.MatchString("mobileapp")) // true
+fmt.Println(r.MatchString("newsapp"))   // false
 
-  r := regexp.MustCompile("hap\\Dy")
-  fmt.Println(r.MatchString("happy"))   // true
-  fmt.Println(r.MatchString("hap9y"))   // false
+r := regexp.MustCompile("[^beilmow]app")
+fmt.Println(r.MatchString("webapp"))    // false
+fmt.Println(r.MatchString("mobileapp")) // false
+fmt.Println(r.MatchString("newsapp"))   // true
 
-  // 範例 \w
+// 範例 {}
+r := regexp.MustCompile("go{2}gle")
+fmt.Println(r.MatchString("google"))    // true
+fmt.Println(r.MatchString("goooogle"))  // false
+fmt.Println(r.MatchString("ggle"))      // false
 
-  r := regexp.MustCompile("hap\\wy")
-  fmt.Println(r.MatchString("happy"))   // true
-  fmt.Println(r.MatchString("hap y"))   // false
+r := regexp.MustCompile("go{2,}gle")
+fmt.Println(r.MatchString("google"))    // true
+fmt.Println(r.MatchString("goooogle"))  // true
+fmt.Println(r.MatchString("ggle"))      // false
 
-  // 範例 \W
+r := regexp.MustCompile("go{1,4}gle")
+fmt.Println(r.MatchString("google"))    // true
+fmt.Println(r.MatchString("goooogle"))  // true
+fmt.Println(r.MatchString("gooooogle")) // false
+fmt.Println(r.MatchString("ggle"))      // false
 
-  r := regexp.MustCompile("hap\\wy")
-  fmt.Println(r.MatchString("hap y"))   // true
-  fmt.Println(r.MatchString("happy"))   // false
-
-  // 範例 \B
-
-  r := regexp.MustCompile("app\\B")
-  fmt.Println(r.MatchString("happy"))   // true
-  fmt.Println(r.MatchString("apple"))   // true
-  fmt.Println(r.MatchString("webapp"))  // false
-
-  // 範例 (a|b)
-
-  r := regexp.MustCompile("(bbc|cnn)news")
-  fmt.Println(r.MatchString("bbcnews"))   // true
-  fmt.Println(r.MatchString("cnnnews"))   // true
-  fmt.Println(r.MatchString("tvbsnews"))  // false
-
-  // 範例 []
-
-  r := regexp.MustCompile("[beilmow]app")
-  fmt.Println(r.MatchString("webapp"))    // true
-  fmt.Println(r.MatchString("mobileapp")) // true
-  fmt.Println(r.MatchString("newsapp"))   // false
-
-  r := regexp.MustCompile("[^beilmow]app")
-  fmt.Println(r.MatchString("webapp"))    // false
-  fmt.Println(r.MatchString("mobileapp")) // false
-  fmt.Println(r.MatchString("newsapp"))   // true
-
-  // 範例 {}
-
-  r := regexp.MustCompile("go{2}gle")
-  fmt.Println(r.MatchString("google"))    // true
-  fmt.Println(r.MatchString("goooogle"))  // false
-  fmt.Println(r.MatchString("ggle"))      // false
-
-  r := regexp.MustCompile("go{2,}gle")
-  fmt.Println(r.MatchString("google"))    // true
-  fmt.Println(r.MatchString("goooogle"))  // true
-  fmt.Println(r.MatchString("ggle"))      // false
-
-  r := regexp.MustCompile("go{1,4}gle")
-  fmt.Println(r.MatchString("google"))    // true
-  fmt.Println(r.MatchString("goooogle"))  // true
-  fmt.Println(r.MatchString("gooooogle")) // false
-  fmt.Println(r.MatchString("ggle"))      // false
 ```
