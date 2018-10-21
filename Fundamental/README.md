@@ -309,4 +309,16 @@ fmt.printf
 
 常用字串工具
 
+* Contains
+* Split
+* Trim
+* TrimSpace
+* TrimLeft
+* TrimPrefix
+* TrimRight
+* TrimSuffix
+* Title
+* ToLower
+* ToUpper
+
 [原文網址](https://golang.org/pkg/strings/)
