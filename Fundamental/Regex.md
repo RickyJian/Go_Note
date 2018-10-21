@@ -8,15 +8,15 @@ import "regexp"
 
 ```
 
-## 函式
+## 函式&方法
 
 ### Compile
 
 編譯正規表示式(regular expression)，若編譯正確則之後程式可以繼續使用
 
 ```go
-    
-    r , err := regexp.Compile("regexp")  // regexp 放置 表示式符號
+
+r , err := regexp.Compile("regexp")  // regexp 放置 表示式符號
 
 ```
 
@@ -30,9 +30,20 @@ r = regexp.MustCompile("regexp")   // regexp 放置 表示式符號
 
 ```
 
+### Match
+
+判斷字串是否有符合表示式，以[]byte型態為參數，回傳型態為布林(bool)
+
+```go
+
+r := regexp.MustCompile("hap*y")
+fmt.Println(r.Match([]byte("happy")))   // true
+
+```
+
 ### MatchString
 
-判斷字串是否有符合表示式，回傳型態為布林(bool)
+與 match 使用方式相仿，以字串型態為參數
 
 ```go
 
@@ -40,6 +51,18 @@ r := regexp.MustCompile("hap*y")
 fmt.Println(r.MatchString("happy"))   // true
 
 ```
+
+### FindString
+
+### FindStringIndex
+
+### FindAllString
+
+### FindAllStringIndex
+
+### ReplaceAllLiteralString
+
+### ReplaceAllString
 
 ## 表示式符號
 
