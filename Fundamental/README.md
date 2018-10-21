@@ -295,4 +295,16 @@ fmt.printf
 
 ### 正規表示式(Regex)
 
+* 函式&方法
+    * Compile
+    * MustCompile
+    * Match
+    * MatchString
+    * FindString
+    * FindStringIndex
+    * FindAllString
+    * FindAllStringIndex
+    * ReplaceAllLiteralString
+* 表示式符號
+
 [原文網址](https://golang.org/pkg/regexp/#example_Regexp_MatchString)
