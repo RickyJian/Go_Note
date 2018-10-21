@@ -307,4 +307,6 @@ fmt.printf
 
 ### Strings
 
-常用字串的 library
+常用字串工具
+
+[原文網址](https://golang.org/pkg/strings/)
