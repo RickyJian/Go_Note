@@ -277,10 +277,6 @@ fmt.printf
 
 自訂命令列
 
-### flag teat
-
-撰寫命令 Test
-
 ### Init
 
 套件初始化
@@ -308,3 +304,7 @@ fmt.printf
 * 表示式符號
 
 [原文網址](https://golang.org/pkg/regexp/#example_Regexp_MatchString)
+
+### Strings
+
+常用字串的 library
