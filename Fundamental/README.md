@@ -130,6 +130,7 @@ key/value
 * 匿名遷入
 * 匿名結構
 * 字面常數標籤
+* New()
 
 ## Interface
 
