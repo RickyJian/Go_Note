@@ -1,19 +1,32 @@
 # 正規表示式(Regex)
 
+```go
+
+import "regexp"
+
+```
+
 ## 函式
 
 ### Compile
 
 編譯正規表示式(regular expression)，若編譯正確則之後程式可以繼續使用
 
-> func Compile(expr string) (*Regexp, error)
-
 ```go
-
+    
+    r , err := regexp.Compile("regexp")  // regexp 放置 表示式符號
 
 ```
 
 ### MustCompile
+
+與 Compile 函式類似，但只會回傳單一值，若失敗則直接 panic
+
+```go
+
+r = regexp.MustCompile("regexp")   // regexp 放置 表示式符號
+
+```
 
 ### MatchString
 
