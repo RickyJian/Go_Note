@@ -105,6 +105,7 @@ fmt.Println(strings.Title("hello everyone."))   // 回傳 Hello Everyone.
 fmt.Println(strings.ToLower("HELLO EVERYONE."))   // 回傳 hello everyone.
 
 ```
+
 ## ToUpper
 
 字串轉大寫
