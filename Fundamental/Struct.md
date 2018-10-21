@@ -220,3 +220,31 @@ type Person struct {
 }
 
 ```
+
+## 方法：New
+
+若要讓 struct 參數初始化常用 New  或 NewStructName 開頭命名，回傳型態為 struct 指標型態
+
+```go
+
+type Person struct {
+    Name string
+    Age int
+}
+
+func New(name string , age int) *Person {
+    return &Pereson{
+        Name : name,
+        Age : age,
+    }
+}
+
+func NewPerson(name string , age int) *Person {
+    return &Pereson{
+        Name : name,
+        Age : age,
+    }
+}
+
+
+```
