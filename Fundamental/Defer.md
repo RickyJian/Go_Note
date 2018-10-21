@@ -64,14 +64,4 @@ defer func () {
 
 ## 解決恐慌(panic)
 
-```go
-
-func Parse(input string)(s *Syntax , err error){
-    defer func (){
-        if p := recover();p != nil{
-            err = fmt.Errorf("error")
-        }
-    }()
-}
-
-```
+[參照](PanicAndRecover.md)
