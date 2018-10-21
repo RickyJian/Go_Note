@@ -32,9 +32,12 @@ r = regexp.MustCompile("regexp")   // regexp 放置 表示式符號
 
 ### MatchString
 
+判斷字串是否有符合表示式，回傳型態為布林(bool)
+
 ```go
 
-
+r := regexp.MustCompile("hap*y")
+fmt.Println(r.MatchString("happy"))   // true
 
 ```
 
