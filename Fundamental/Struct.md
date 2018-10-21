@@ -221,7 +221,7 @@ type Person struct {
 
 ```
 
-## 方法：New
+## 參數初始化
 
 若要讓 struct 參數初始化常用 New  或 NewStructName 開頭命名，回傳型態為 struct 指標型態
 
