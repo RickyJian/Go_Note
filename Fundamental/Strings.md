@@ -32,7 +32,7 @@ fmt.Println(strings.Split("a,b,c", ",")) // 回傳 ["a" "b" "c"]
 
 ```go
 
-fmt.Print(strings.Trim("¡¡¡Hello, Gophers!!!", "!¡"))
+fmt.Println(strings.Trim("¡¡¡Hello, Gophers!!!", "!¡"))
 
 ```
 
@@ -52,7 +52,7 @@ fmt.Println(strings.TrimSpace(" \t\n Hello, Gophers \n\t\r\n"))
 
 ```go
 
-fmt.Print(strings.TrimLeft("¡¡¡Hello, Gophers!!!", "¡")) // 回傳 Hello, Gophers!!!
+fmt.Println(strings.TrimLeft("¡¡¡Hello, Gophers!!!", "¡")) // 回傳 Hello, Gophers!!!
 
 ```
 
@@ -62,7 +62,7 @@ fmt.Print(strings.TrimLeft("¡¡¡Hello, Gophers!!!", "¡")) // 回傳 Hello, Go
 
 ```go
 
-fmt.Print(strings.TrimPrefix("¡¡¡Hello, Gophers!!!", "¡")) // 回傳 ¡¡Hello, Gophers!!!
+fmt.Println(strings.TrimPrefix("¡¡¡Hello, Gophers!!!", "¡")) // 回傳 ¡¡Hello, Gophers!!!
 
 ```
 
@@ -72,7 +72,7 @@ fmt.Print(strings.TrimPrefix("¡¡¡Hello, Gophers!!!", "¡")) // 回傳 ¡¡Hel
 
 ```go
 
-fmt.Print(strings.TrimRight("¡¡¡Hello, Gophers!!!", "!")) // 回傳¡¡¡Hello, Gophers
+fmt.Println(strings.TrimRight("¡¡¡Hello, Gophers!!!", "!")) // 回傳¡¡¡Hello, Gophers
 
 ```
 
@@ -82,6 +82,35 @@ fmt.Print(strings.TrimRight("¡¡¡Hello, Gophers!!!", "!")) // 回傳¡¡¡Hell
 
 ```go
 
-fmt.Print(strings.TrimSuffix("¡¡¡Hello, Gophers!!!", "!")) // 回傳¡¡¡Hello, Gophers!!
+fmt.Println(strings.TrimSuffix("¡¡¡Hello, Gophers!!!", "!")) // 回傳 ¡¡¡Hello, Gophers!!
+
+```
+
+## Title
+
+將字串中單字開頭轉大寫
+
+```go
+
+fmt.Println(strings.Title("hello everyone."))   // 回傳 Hello Everyone.
+
+```
+
+## ToLower
+
+字串轉小寫
+
+```go
+
+fmt.Println(strings.ToLower("HELLO EVERYONE."))   // 回傳 hello everyone.
+
+```
+## ToUpper
+
+字串轉大寫
+
+```go
+
+fmt.Println(strings.ToUpper("hello everyone."))   // 回傳 HELLO EVERYONE.
 
 ```
