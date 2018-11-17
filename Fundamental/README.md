@@ -323,3 +323,7 @@ fmt.printf
 * ToUpper
 
 [原文網址](https://golang.org/pkg/strings/)
+
+### Exec
+
+執行外部 Command
