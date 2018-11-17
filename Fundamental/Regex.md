@@ -124,7 +124,7 @@ fmt.Println(r.ReplaceAllLiteralString("google doodle noodle bool","00"))  // 回
 | \w | 匹配任何字，等於 [a-zA-Z0-9_] |
 | \W | 匹配任何**非**字，等於 [^a-zA-Z0-9_] |
 | \B | 匹配字首與字尾間的字元 |
-| (a\|b) | 匹配`(a|b)`中的 a 或 b 字元 |
+| (a\|b) | 匹配`(a\|b)`中的 a 或 b 字元 |
 | [abc] | 匹配`[]`所包含的任一字元 |
 | [^abc] | 匹配`[]`**未包含**的任一字元 |
 | [a-z] <br> [a-zA-Z] | 匹配`[]`範圍中的任一字元，大小寫有區別 |
