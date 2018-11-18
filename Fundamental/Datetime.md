@@ -29,7 +29,7 @@ t := time.Now()
 // local
 fmt.Println(t.Location())
 
-// 時區設定，參數為位置，若位置為 nil 則會產生 error
+// 時區設定，地區時間設定，參數為位置，若位置為 nil 則會產生 error
 location, err := time.LoadLocation("Asia/Taipei")
 t = t.In(location)
 
@@ -39,5 +39,16 @@ if err != nil {
 
 // 位置 :  Asia/Taipei  時間 :  2018-11-18 15:39:38.7503566 +0800 CST
 fmt.Println("位置 : ", location, " 時間 : ", t)
+
+// 時區設定，時間格式設定，參數為位置，若位置為 nil 則會產生 error
+location, err := time.LoadLocation("UTC")
+t = t.In(location)
+
+if err != nil {
+    fmt.Println(err)
+}
+
+// 位置 :  UTC  時間 :  2018-11-18 07:48:04.7495329 +0000 UTC
+fmt.Println("格式 : ", UTC, " 時間 : ", t)
 
 ```
