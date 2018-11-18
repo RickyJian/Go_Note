@@ -18,7 +18,7 @@ func Reset (x *Buffer){
     if x == nil {
         panic("x is nil")
     }
-    x.elements = nil 
+    x.elements = nil
 }
 
 ```
