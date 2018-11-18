@@ -330,4 +330,4 @@ fmt.printf
 
 ### Datetime
 
-時間處理
+日期時間處理
