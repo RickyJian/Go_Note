@@ -23,14 +23,13 @@ func Reset (x *Buffer){
 
 ```
 
-
 ## recover
 
 * 恢復 panic
 * 不接受任何參數，但是傳回一個非nil的interface{}類型的結果值
 * 當恐慌panic發生後會失去流程控制權，只有透過 defer 才能真正攔截到 panic
 
-```go 
+```go
 
 func Parse(input string)(s *Syntax , err error){
     defer func (){
