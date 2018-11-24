@@ -331,3 +331,10 @@ fmt.printf
 ### Datetime
 
 日期時間處理
+
+* Now
+* Format
+* 時區設定
+* 抓取日期&時間
+* 日期運算
+* 日期比較
