@@ -84,3 +84,62 @@ if err != nil {
 fmt.Println("格式 : ", UTC, " 時間 : ", t)
 
 ```
+
+### 抓取日期&時間
+
+```go
+
+t := time.Now()
+// 獲取 年
+fmt.Println(t.Year())
+// 獲取 年月日
+fmt.Println(t.Date())
+// 獲取 月
+fmt.Println(t.Month())
+// 獲取 日
+fmt.Println(t.Day())
+// 獲取 時
+fmt.Println(t.Hour())
+// 獲取 分
+fmt.Println(t.Minute())
+// 獲取 秒
+fmt.Println(t.Second())
+
+```
+
+### 日期運算
+
+```go
+
+t := time.Now()
+// 增加 年月日，參數一：年，參數二：月，參數三：日
+p := t.AddDate(1, 1, 1)
+fmt.Println(p.String())
+
+// 增加 時間
+p = t.Add(10 * time.Hour)
+fmt.Println(p.String())
+p = t.Add(10 * time.Minute)
+fmt.Println(p.String())
+p = t.Add(10 * time.Second)
+fmt.Println(p.String())
+p = t.Add(10 * time.Millisecond)
+fmt.Println(p.String())
+p = t.Add(10 * time.Microsecond)
+fmt.Println(p.String())
+p = t.Add(10 * time.Nanosecond)
+fmt.Println(p.String())
+
+```
+
+### 日期比較
+
+```go
+
+t := time.Now()
+p := time.Now().AddDate(-1, -1, -1)
+// 比較 t 和 p 之間所相差的時間
+diff := t.Sub(p)
+fmt.Println(diff)
+
+```
