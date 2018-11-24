@@ -133,6 +133,26 @@ err := os.Rename("oldname", path+"newname")
 
 ```
 
+## 檔案複製
+
+```go
+
+orig := "C:\\tmp\\orig.txt"
+dest := "C:\\tmp\\dest.txt"
+origFile, _ := os.Open(orig)
+defer origFile.Close()
+destFile, _ := os.Create(dest)
+defer destFile.Close()
+// 參數一：新檔案，參數二：被複製檔案
+bytes, err := io.Copy(destFile, origFile)
+if err != nil {
+    // error process
+}
+log.Printf("Copied %d bytes.", bytes)
+
+
+```
+
 ## 刪除
 
 ```go
