@@ -63,3 +63,17 @@ n4, err := w.WriteString("buffered\n")
 w.Flush()
 
 ```
+
+## 刪除
+
+刪除檔案或路徑
+
+```go
+
+// 單檔刪除
+os.Remove("C:\\tmp\\tmp.mp4")
+
+// 多檔&路徑刪除
+os.RemoveAll("C:\\tmp\\complete")
+
+```
