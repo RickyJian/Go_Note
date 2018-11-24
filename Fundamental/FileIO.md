@@ -120,6 +120,19 @@ w.Flush()
 
 ```
 
+## 檔案重新命名
+
+```go
+
+// 參數一：舊名稱，參數二：新名稱
+err := os.Rename("oldname", "newname")
+
+// 特別用法：檔案移動
+path := "c:\\tmp\\newpath\\"
+err := os.Rename("oldname", path+"newname")
+
+```
+
 ## 刪除
 
 ```go
