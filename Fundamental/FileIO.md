@@ -1,6 +1,6 @@
 # File I/O
 
-檔案 寫入/寫出
+檔案&目錄 寫入/寫出
 
 ioutil：[連結](https://golang.org/pkg/io/ioutil/)
 
@@ -8,7 +8,63 @@ os：[連結](https://golang.org/pkg/os/)
 
 bufio：[連結](https://golang.org/pkg/bufio/)
 
-## 開啟
+## 狀態
+
+### 檢視檔案&目錄屬性
+
+```go
+
+// 若 err != nil 代表檔案或屬性不存在
+status, err := os.Stat("C:\\tmp\\")
+if err == nil {
+    // 判斷是否為目錄
+    fmt.Println(status.IsDir())
+    // 最後異動時間
+    fmt.Println(status.ModTime())
+    // 檔案&目錄權限
+    fmt.Println(status.Mode())
+    // 檔案&目錄名稱
+    fmt.Println(status.Name())
+    // 檔案&目錄大小
+    fmt.Println(status.Size())
+}
+
+
+```
+
+### 檢查檔案&目錄是否存在
+
+```go
+
+path := "C:\\tmp\\"
+if _, err := os.Stat(path); os.IsNotExist(err) {
+    // 檔案&目錄存在為 false
+    fmt.Println(os.IsNotExist(err))
+    // 檔案&目錄存在為 true
+    fmt.Println(os.IsExist(err))
+}
+
+```
+
+## 目錄新建
+
+```go
+
+path := "C:\\tmp\\"
+if _, err := os.Stat(path); os.IsNotExist(err) {
+    // 參數一：路徑，參數二：目錄權限
+    // 建立一層目錄
+    os.Mkdir(path, 777)
+    // 建立多層層目錄
+    os.Mkdir(path+"a\\b\\c", 777)
+}
+
+
+```
+
+[檔案&目錄權限解說](http://linux.vbird.org/linux_basic/0210filepermission.php#filepermission_dir)
+
+## 檔案開啟
 
 ```go
 
@@ -18,7 +74,7 @@ f, err := os.Open(path)
 
 ```
 
-## 讀取
+## 檔案讀取
 
 ```go
 
@@ -32,7 +88,7 @@ content, err := ioutil.ReadFile(path)
 
 ```
 
-## 寫出
+## 檔案寫出
 
 ```go
 
@@ -65,8 +121,6 @@ w.Flush()
 ```
 
 ## 刪除
-
-刪除檔案或路徑
 
 ```go
 
