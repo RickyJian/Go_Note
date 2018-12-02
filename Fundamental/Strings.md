@@ -26,6 +26,18 @@ fmt.Println(strings.Split("a,b,c", ",")) // 回傳 ["a" "b" "c"]
 
 ```
 
+## Join
+
+連接字串，回傳型態string
+
+```go
+
+s := []string{"apple","peach","banana"}
+// 連接 '、' 進 s，輸出：apple、peach、banana
+fmt.Println(strings.Join(s, "、"))
+
+```
+
 ## Trim
 
 刪除前後字，參數 1 為原字串，參數 2 為要刪除的字串
