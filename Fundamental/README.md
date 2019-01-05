@@ -9,9 +9,9 @@
 * GOROOT
 * GOPATH
 * 檔案結構
-    * src
-    * pkg
-    * bin
+  * src
+  * pkg
+  * bin
 * GOBIN
 
 ### Command
@@ -30,9 +30,9 @@
 ### PackageAndImport
 
 * 套件、檔案
-    * package  
-    * 匯出(Export)
-    * 匯入(Import)
+  * package  
+  * 匯出(Export)
+  * 匯入(Import)
 
 > go 套件搜尋：http://godoc.org
 
@@ -41,8 +41,8 @@
 識別符號
 
 * 語言符號
-    * 識別符號
-        * 限定識別符號
+  * 識別符號
+    * 限定識別符號
 
 ### Keyword
 
@@ -73,15 +73,15 @@
 * 區域
 * 全域
 * 變數
-    * 一般
-    * 簡短
+  * 一般
+  * 簡短
 * 型別
 * 指派
-    * 指派運算
-    * 資料組指派
+  * 指派運算
+  * 資料組指派
 * 範圍
 * 轉型
-    * 指標轉型
+  * 指標轉型
 
 ## 資料型態
 
@@ -94,9 +94,9 @@
 * 複數
 * 布林
 * 字串
-    * 跳脫序列
+  * 跳脫序列
 * 常數
-    * iota 常數產生器
+  * iota 常數產生器
 
 ### Pointer
 
@@ -137,15 +137,15 @@ key/value
 介面
 
 * 介面型別
-    * 嵌入
+  * 嵌入
 * 空介面
 * flag.value
 * 介面值
-    * 動態型別
-    * 動態值
+  * 動態型別
+  * 動態值
 * 型別判別
-    * 具體型別
-    * 非具體型別
+  * 具體型別
+  * 非具體型別
 * 型別判斷
 
 ## 流程控制
@@ -181,11 +181,11 @@ for 迴圈使用方式
 
 * 不具名函式
 * 參數列
-    * 參數
-    * 型別
+  * 參數
+  * 型別
 * 回傳值
-    * 多回傳值
-    * 資料類型
+  * 多回傳值
+  * 資料類型
 * 遞迴
 * defer 
 
@@ -194,10 +194,10 @@ for 迴圈使用方式
 方法
 
 * 方法宣告
-    * 方法值
-        * 方法運算式
-    * Receive
-    * Point Receive
+  * 方法值
+    * 方法運算式
+  * Receive
+  * Point Receive
 
 ## 錯誤處理
 
@@ -226,6 +226,8 @@ goroutine 之間連線
 * 單向 channel 類型
 * 無緩衝 channel
 * 有緩衝 channel
+
+### pipe
 
 ### select
 
@@ -293,15 +295,15 @@ fmt.printf
 ### 正規表示式(Regex)
 
 * 函式&方法
-    * Compile
-    * MustCompile
-    * Match
-    * MatchString
-    * FindString
-    * FindStringIndex
-    * FindAllString
-    * FindAllStringIndex
-    * ReplaceAllLiteralString
+  * Compile
+  * MustCompile
+  * Match
+  * MatchString
+  * FindString
+  * FindStringIndex
+  * FindAllString
+  * FindAllStringIndex
+  * ReplaceAllLiteralString
 * 表示式符號
 
 [原文網址](https://golang.org/pkg/regexp/#example_Regexp_MatchString)
@@ -312,6 +314,7 @@ fmt.printf
 
 * Contains
 * Split
+* Join
 * Trim
 * TrimSpace
 * TrimLeft
@@ -332,9 +335,10 @@ fmt.printf
 
 日期時間處理
 
-* Now
-* Format
-* 時區設定
-* 抓取日期&時間
-* 日期運算
-* 日期比較
+* 函式&方法
+  * Now
+  * Format
+  * 時區設定
+  * 抓取日期&時間
+  * 日期運算
+  * 日期比較
