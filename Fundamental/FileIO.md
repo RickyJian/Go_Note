@@ -46,6 +46,24 @@ if _, err := os.Stat(path); os.IsNotExist(err) {
 
 ```
 
+### 讀取目錄下所有檔案
+
+```go
+
+path := "C:\\"
+// 走訪目錄檔案
+files, err := ioutil.ReadDir(path)
+if err != nil {
+    log.Fatal(err)
+}
+
+for _, file := range files {
+    // 列出檔案或目錄的名稱
+    fmt.Println(file.Name())
+}
+
+```
+
 ## 目錄新建
 
 ```go
