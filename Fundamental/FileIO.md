@@ -96,7 +96,7 @@ if _, err := os.Stat(path); os.IsNotExist(err) {
     // 建立一層目錄
     os.Mkdir(path, 777)
     // 建立多層層目錄
-    os.Mkdir(path+"a\\b\\c", 777)
+    os.MkdirAll(path+"a\\b\\c", 777)
 }
 
 
