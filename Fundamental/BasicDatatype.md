@@ -146,13 +146,3 @@ const{
 ```
 
 > Sunday 為 0 ，Monday 為 1 ，以此類推
-
-### 無型別常數
-
-字面常數表示的常數，例：true、false、"A"、iota`
-
-```go
-
-const c = 1.0
-
-```
