@@ -85,7 +85,7 @@ var rootCmd = &cobra.Command{
 
 ```
 
-## 執行 Command
+## 執行
 
 ```go
 
