@@ -17,7 +17,9 @@ go get https://github.com/Sirupsen/logrus
 
 ```
 
-## log 基本設定
+## log 設定
+
+### 基本設定
 
 ```go
 
@@ -32,4 +34,31 @@ func init() {
 	logrus.SetLevel(logrus.WarnLevel)
 }
 
+```
+
+### 輸出格式設定
+
+#### 日期時間格式
+
+```go
+
+func init(){
+    // 輸出格式，預設為 logrus.TextFormatter
+	formatter := new(logrus.TextFormatter)
+	// 時間格式輸出
+	formatter.TimestampFormat = "2006-01-02 15:04:05"
+	logrus.SetFormatter(formatter)
+}
+
+```
+
+#### 檔案輸出
+
+```go
+	file, err := os.OpenFile("C:\\tmp\\log.txt", os.O_WRONLY|os.O_CREATE, 0666)
+	if err == nil {
+		logrus.SetOutput(file)
+	} else {
+		fmt.Println(err)
+	}
 ```
