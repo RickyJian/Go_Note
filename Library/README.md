@@ -6,7 +6,7 @@ Cli 套件
 
 [Github](https://github.com/spf13/cobra)
 
-[教學](Cobra.md)
+[教學](Cobra)
 
 ## GORM
 
