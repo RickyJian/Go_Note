@@ -6,6 +6,8 @@ ioutil：[連結](https://golang.org/pkg/io/ioutil/)
 
 os：[連結](https://golang.org/pkg/os/)
 
+filepath：[連結](https://golang.org/pkg/path/filepath/)
+
 bufio：[連結](https://golang.org/pkg/bufio/)
 
 ## 狀態
@@ -46,7 +48,9 @@ if _, err := os.Stat(path); os.IsNotExist(err) {
 
 ```
 
-### 讀取目錄下所有檔案
+## 讀取目錄下所有檔案
+
+### 單層目錄走訪
 
 ```go
 
@@ -61,6 +65,24 @@ for _, file := range files {
     // 列出檔案或目錄的名稱
     fmt.Println(file.Name())
 }
+
+```
+
+### 子目錄走訪
+
+```go
+
+import "path/filepath"
+
+func visit (path string, f os.FileInfo, err error) error {
+    // 走訪目錄後的邏輯處理
+}
+
+func main (){
+    root = "C:\\"
+    err := filepath.Walk(root, visit)
+}
+
 
 ```
 
