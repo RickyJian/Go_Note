@@ -14,6 +14,8 @@
   * bin
 * GOBIN
 
+[連結](Catalog.md)
+
 ### Command
 
 常用`Go`指令
@@ -24,6 +26,14 @@
 * get
 * version
 * env
+
+[連結](Command.md)
+
+## Doc
+
+Go 文件註解
+
+[連結](Doc.md)
 
 ## 程式結構
 
@@ -36,6 +46,8 @@
 
 > go 套件搜尋：http://godoc.org
 
+[連結](PackageAndImport.md)
+
 ### Identifier
 
 識別符號
@@ -44,9 +56,14 @@
   * 識別符號
     * 限定識別符號
 
+
+[連結](Identifier.md)
+
 ### Keyword
 
 關鍵字
+
+[連結](Keyword.md)
 
 ### Operator
 
@@ -58,6 +75,8 @@
 * 地址運算子
 * 接收運算子
 
+[連結](Operator.md)
+
 ### Literal 
 
 字面常數
@@ -65,6 +84,8 @@
 * 基礎資料類型值
 * 建置複合資料類型值
 * 表示複合資料類型值
+
+[連結](Literal.md)
 
 ### VariableAndDeclaration
 
@@ -83,9 +104,11 @@
 * 轉型
   * 指標轉型
 
+[連結](VariableAndDeclaration.md)
+
 ## 資料型態
 
-### Basic_Datatype
+### BasicDatatype
 
 基本資料型別
 
@@ -98,9 +121,13 @@
 * 常數
   * iota 常數產生器
 
+[連結](BasicDatatype.md)
+
 ### Pointer
 
 指標
+
+[連結](Pointer.md)
 
 ## Aggreate_Datatype
 
@@ -110,18 +137,24 @@
 
 陣列
 
-### slice
+[連結](Array.md)
+
+### Slice
 
 切片
 
 * append
 * copy
 
-### map
+[連結](Slice.md)
+
+### Map
 
 key/value
 
 * delete
+
+[連結](Map.md)
 
 ### Struct
 
@@ -131,6 +164,8 @@ key/value
 * 匿名結構
 * 字面常數標籤
 * 參數初始化
+
+[連結](Struct.md)
 
 ## Interface
 
@@ -148,11 +183,15 @@ key/value
   * 非具體型別
 * 型別判斷
 
+[連結](Interface.md)
+
 ## 流程控制
 
 ### If
 
 if 判斷式使用方式
+
+[連結](If.md)
 
 ### Switch
 
@@ -161,17 +200,19 @@ switch 判斷式使用方式
 * 運算式判斷
 * 型別判斷
 
+[連結](Switch.md)
+
 ### For
 
 for 迴圈使用方式
 
-#### range
-
-迭代 array , slice , map 
+[連結](For.md)
 
 ### Defer
 
 延遲
+
+[連結](Defer.md)
 
 ## 方法及函式
 
@@ -187,9 +228,23 @@ for 迴圈使用方式
   * 多回傳值
   * 資料類型
 * 遞迴
-* defer 
+* defer
 
-###  Method
+[連結](Function.md)
+
+### Range
+
+迭代 array , slice , map
+
+[連結](Range.md)
+
+### Init
+
+套件初始化
+
+[連結](Init.md)
+
+### Method
 
 方法
 
@@ -199,22 +254,30 @@ for 迴圈使用方式
   * Receive
   * Point Receive
 
+[連結](Method.md)
+
 ## 錯誤處理
 
 ### ERROR 介面
 
 * 建構 error package
 
+[連結](ERROR.md)
+
 ### PanicAndRecovery
 
 * panic
 * recover
+
+[連結](PanicAndRecovery.md)
 
 ## 平行處理
 
 ### goroutine
 
 並行
+
+[連結](Goroutine.md)
 
 ### channel
 
@@ -227,18 +290,26 @@ goroutine 之間連線
 * 無緩衝 channel
 * 有緩衝 channel
 
+[連結](channel.md)
+
 ### pipe
 
 ### select
+
+判定 channel 狀態並選擇該執行的邏輯
+
+[連結](Select.md)
 
 ### 互斥鎖
 
 * mutex
 * rwmutex
 
+[連結](Mutex.md)
+
 ### 初始化
 
-once
+[連結](Once.md)
 
 ## 測試
 
@@ -248,17 +319,17 @@ Go 測試程式撰寫
 
 單元測試撰寫
 
+[連結](UniTest.md)
+
 ### Benchmark
 
 基準測試
 
-### Example
-
-## Go Doc
-
-Go 文件註解
+[連結](Benchmark.md)
 
 ## Log
+
+[連結](Log.md)
 
 -----
 
@@ -268,29 +339,37 @@ Go 文件註解
 
 零值初始
 
+[連結](ZeroValue.md)
+
 ### JSON
 
 JSON 常用方法
+
+[連結](JSON.md)
 
 ### 字串格式化
 
 fmt.printf
 
-### flag
+[連結](Fmt.md)
+
+### CLI
 
 自訂命令列
 
-### Init
-
-套件初始化
+[連結](CLI.md)
 
 ### MakeAndNew
 
 資料初始化，了解`new`與`make`的用法
 
+[連結](MakeAndNew.md)
+
 ### File I/O
 
 檔案 寫入/寫出
+
+[連結](FileIO.md)
 
 ### 正規表示式(Regex)
 
@@ -307,6 +386,8 @@ fmt.printf
 * 表示式符號
 
 [原文網址](https://golang.org/pkg/regexp/#example_Regexp_MatchString)
+
+[連結](Regex.md)
 
 ### Strings
 
@@ -327,9 +408,13 @@ fmt.printf
 
 [原文網址](https://golang.org/pkg/strings/)
 
+[連結](Strings.md)
+
 ### Exec
 
 執行外部 Command
+
+[連結](Exec.md)
 
 ### Datetime
 
@@ -342,3 +427,5 @@ fmt.printf
   * 抓取日期&時間
   * 日期運算
   * 日期比較
+
+[連結](Datetime.md)
