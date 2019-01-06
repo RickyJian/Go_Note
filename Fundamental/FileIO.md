@@ -160,6 +160,31 @@ w.Flush()
 
 ```
 
+## os.OpenFile()
+
+合併開啟、新建、讀取、寫出
+
+> func OpenFile(name string, flag int, perm FileMode) (*File, error) <br>
+
+
+[連結](https://golang.org/pkg/os/#OpenFile)
+
+```go
+//  參數一：檔案位置 
+//  參數二：動作 
+//      O_RDONLY // 只讀
+//      O_WRONLY // 只寫
+//      O_RDWR   // 可讀可寫
+//      O_APPEND // 複寫
+//      O_CREATE // 當檔案不存在時新建
+//      O_EXCL   // 與 O_CREATE 合併使用, 但檔案一定不能存在
+//      O_SYNC   // 同步檔案
+//      O_TRUNC  // 當檔案存在，就將檔案截斷為 0
+//  參數三：檔案權限
+os.OpenFile("notes.txt", os.O_RDWR|O_APPEND|os.O_CREATE, 0666)
+
+```
+
 ## 檔案重新命名
 
 ```go
