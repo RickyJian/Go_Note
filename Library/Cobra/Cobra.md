@@ -22,11 +22,15 @@ cobra init <projectname or path>
 
 ```
 
+```
+
 project
 |--- cmd
 |    |___ root.go // 
 |--- LICENSE
 |___ main.go  // 主要執行檔
+
+```
 
 ## Command Struct
 
