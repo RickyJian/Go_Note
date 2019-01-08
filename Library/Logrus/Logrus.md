@@ -59,7 +59,7 @@ func init(){
 		logrus.SetOutput(file)
 	} else {
 		fmt.Println(err)
-    }
+	}
     
 ```
 
