@@ -17,7 +17,7 @@ go get https://github.com/Sirupsen/logrus
 
 ```
 
-## log 設定
+## 設定
 
 ### 基本設定
 
@@ -36,8 +36,6 @@ func init() {
 
 ```
 
-### 輸出格式設定
-
 #### 日期時間格式
 
 ```go
@@ -55,10 +53,47 @@ func init(){
 #### 檔案輸出
 
 ```go
+
 	file, err := os.OpenFile("C:\\tmp\\log.txt", os.O_WRONLY|os.O_CREATE, 0666)
 	if err == nil {
 		logrus.SetOutput(file)
 	} else {
 		fmt.Println(err)
-	}
+    }
+    
+```
+
+## 輸出
+
+### 基本
+
+輸出內容只有時間、錯誤層級、錯誤訊息
+
+```go
+
+func main (){
+    logrus.Info("log info.")
+    logrus.Warning("log warning.")
+    logrus.Error("log error.")
+    logrus.Fatal("log fatal.")
+}
+
+
+```
+
+### 自訂
+
+將自訂 struct 輸出
+
+```go
+
+func main (){
+    logStruct := logrus.WithFields(
+	logrus.Fields{
+		"count": 1,
+		"place": "School",
+	})
+	logStruct.Error("Warning")
+}
+
 ```
