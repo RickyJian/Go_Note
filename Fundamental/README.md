@@ -290,7 +290,7 @@ goroutine 之間連線
 * 無緩衝 channel
 * 有緩衝 channel
 
-[連結](channel.md)
+[連結](Channel.md)
 
 ### pipe
 
