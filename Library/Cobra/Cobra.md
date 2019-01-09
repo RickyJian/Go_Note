@@ -51,7 +51,7 @@ var rootCmd = &cobra.Command{
 
 ```
 
-### Flag 新增
+### Flag 新增&綁定
 
 ```go
 
@@ -71,7 +71,7 @@ func init() {
 
 ```
 
-### Flag 綁定
+### 參數及邏輯處理
 
 ```go
 
