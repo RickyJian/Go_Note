@@ -54,3 +54,52 @@ fmt.Println("Current GO")
 runtime.Gosched()
 
 ```
+
+
+## sync.WaitGroup
+
+goroutine 計數器
+
+```go
+
+func main() {
+	demo()
+}
+
+func demo() {
+	sizes := make(chan int)
+	var wg sync.WaitGroup
+	for i := 0; i < 4; i++ {
+		wg.Add(1)
+		go func(i int) {
+			defer wg.Done()
+			sizes <- i
+		}(i)
+	}
+
+	go func() {
+		wg.Wait()
+		close(sizes)
+	}()
+
+	var total int
+	for size := range sizes {
+		total += size
+		fmt.Println(size)
+	}
+}
+
+
+```
+
+### Add()
+
+增加計數器
+
+### Done()
+
+減少計數器，等同於 Add(-1)，搭配 defer 使用能確保在 panic 發生時也會繼續遞減
+
+### Wait()
+
+等待 goroutine 結束
