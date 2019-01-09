@@ -100,5 +100,118 @@ func main (){
 
 ```
 
+## 進階使用
+
+在此必須使用 hook 這個 interface 並實作 level 及 Fire 方法
+
+```go
+
+type Hook interface {
+    Levels() []Level
+    Fire(*Entry) error
+}
+
+```
+
+Level：指定處理層級
+
+Fire：邏輯處理地方
+
+[Hook 文件](https://godoc.org/github.com/sirupsen/logrus#Hook)
+
+### 指定層級處理
+
+```go
+
+// 定義一個 struct 
+type ErrorLog struct {
+	UserName string
+	Gender   string
+}
+
+var users = []ErrorLog{
+	{"John", "Male"},
+	{"Sandy", "Female"},
+}
+
+// Fire：邏輯處理地方
+func (el *ErrorLog) Fire(entry *logrus.Entry) error {
+	// 將 Key users 加入在輸出中
+	entry.Data["users"] = users
+	return nil
+}
+
+// 指定輸出層級
+func (el *ErrorLog) Levels() []logrus.Level {
+	// 指定輸出在 Error 層級，若要輸出在所有層級則用 logrus.AllLevels 
+	return []logrus.Level{logrus.ErrorLevel}
+}
+
+func main() {
+	logrus.SetFormatter(&logrus.JSONFormatter{})
+	logrus.AddHook(&ErrorLog{})
+	logrus.Info("log info.")
+	logrus.Warning("log warning.")
+	logrus.Error("log error.")
+	logrus.Fatal("log fatal.")
+	// 結果顯示
+	// {"level":"info","msg":"log info.","time":"2019-01-09T16:20:50+08:00"}
+	// {"level":"warning","msg":"log warning.","time":"2019-01-09T16:20:50+08:00"}
+	// {"level":"error","msg":"log error.","time":"2019-01-09T16:20:50+08:00","users":[{"UserName":"John","Gender":"Male"},{"UserName":"Sandy","Gender":"Female"}]}
+	// {"level":"fatal","msg":"log fatal.","time":"2019-01-09T16:20:50+08:00"}
+}
+
+```
+
 ### 多位置輸出
 
+```go
+
+type DefaultLog struct {
+	InfoPath  string
+	WarnPath  string
+	ErrorPath string
+}
+
+var paths = DefaultLog{"C:\\tmp\\infolog.txt", "C:\\tmp\\warnlog.txt", "C:\\tmp\\errorlog.txt"}
+
+func (dl *DefaultLog) Fire(entry *logrus.Entry) error {
+	// entry.String() 獲得 log 資訊
+	line, err := entry.String()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Unable to read entry, %v", err)
+		return err
+	}
+	// entry.Level 獲取錯誤層級
+	switch entry.Level {
+	case logrus.ErrorLevel:
+		file, _ := os.OpenFile(paths.ErrorPath, os.O_WRONLY|os.O_CREATE, 0666)
+		defer file.Close()
+		file.WriteString(line)
+	case logrus.WarnLevel:
+		file, _ := os.OpenFile(paths.WarnPath, os.O_WRONLY|os.O_CREATE, 0666)
+		defer file.Close()
+		file.WriteString(line)
+	case logrus.InfoLevel:
+		file, _ := os.OpenFile(paths.InfoPath, os.O_WRONLY|os.O_CREATE, 0666)
+		defer file.Close()
+		file.WriteString(line)
+	}
+	return nil
+}
+
+func (dl *DefaultLog) Levels() []logrus.Level {
+	return logrus.AllLevels
+}
+
+func main() {
+	logrus.SetFormatter(&logrus.JSONFormatter{})
+	logrus.SetLevel(logrus.DebugLevel)
+	logrus.AddHook(&DefaultLog{})
+	logrus.Info("log info.")
+	logrus.Debug("log debug.")
+	logrus.Warning("log warning.")
+	logrus.Error("log error.")
+}
+
+```
