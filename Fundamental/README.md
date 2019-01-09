@@ -277,6 +277,8 @@ for 迴圈使用方式
 
 並行
 
+* sync.WaitGroup
+
 [連結](Goroutine.md)
 
 ### channel
