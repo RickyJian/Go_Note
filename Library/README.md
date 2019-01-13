@@ -45,3 +45,13 @@ CLI 專案建立
 ### Colly
 
 [Github](https://github.com/gocolly/colly)
+
+## ProgressBar
+
+### PB
+
+[Github](https://github.com/cheggaaa/pb)
+
+### MPB
+
+[Github](https://github.com/vbauerster/mpb)
