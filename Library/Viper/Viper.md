@@ -46,3 +46,26 @@ func init() {
 }
 
 ```
+
+## 取值
+
+```go
+
+    // 讀取設定檔值，回傳型態為 interface{}
+	viper.Get("project")
+	// 讀取設定檔值，回傳型態為  string
+	viper.GetString("project")
+	// 讀取設定檔值，回傳型態為  map[string][]string
+	viper.GetStringMapStringSlice("project")
+	// 讀取設定檔值，回傳型態為  map[string]string
+	viper.GetStringMapString("project")
+	// 讀取設定檔值，回傳型態為  []string
+	viper.GetStringSlice("project")
+	// 讀取設定檔值，回傳型態為  map[string]interface{}
+	viper.GetStringMap("project")
+	// 讀取設定檔值，回傳型態為  bool
+	viper.GetBool("project")
+	// 讀取設定檔值，回傳型態為  int
+	viper.GetInt("project")
+
+```
