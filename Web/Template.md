@@ -161,13 +161,13 @@
 
 ### 定義模板名稱並嵌入
 
-須使用 `{{ defined "name" }}`，name 為定義模板名稱
+須使用 `{{ define "name" }}`，name 為定義模板名稱
 
 嵌入模板名稱
 
 ```html
 
-{{ defined "layout" }}
+{{ define "layout" }}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -190,7 +190,7 @@
 
 ```html
 
-{{ defined "content" }}
+{{ define "content" }}
 
 <div>HELLO</div>
 
