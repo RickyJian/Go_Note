@@ -221,7 +221,7 @@ func process(w http.ResponseWriter, r *http.Request) {
     // 新建&解析模板
     t, _ := template.ParseFiles("index.html")
     // Must()：當有錯誤會導致 panic 產生
-    t, _ := template.Must(template.ParseFiles("index.html"))
+    t := template.Must(template.ParseFiles("index.html"))
     // 將資料綁定模板
 	t.Execute(w, "Hello")
 }
